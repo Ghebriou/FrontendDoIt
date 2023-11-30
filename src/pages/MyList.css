@@ -1,0 +1,458 @@
+body{
+    margin: 0;
+    
+}
+.my-list {
+    background-color: #273043;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    
+}
+
+.my-list .frame-wrapper {
+    background-color: #273043;
+    height: 100vh;
+    width: 100vh;
+}
+
+.my-list .frame {
+    align-items: center;
+    display: inline-flex;
+    flex-direction: column;
+    gap: 40px;
+    justify-content: center;
+    left: 357px;
+    position: relative;
+    top: 112px;
+}
+
+.my-list .div {
+    align-items: center;
+    display: inline-flex;
+    flex: 0 0 auto;
+    gap: 162px;
+    position: relative;
+}
+
+.my-list .text-wrapper {
+    color: #ffffff;
+    font-family: "Righteous-Regular", Helvetica;
+    font-size: 73px;
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: normal;
+    position: relative;
+    white-space: nowrap;
+    width: fit-content;
+}
+
+.my-list .frame-2 {
+    align-items: center;
+    display: inline-flex;
+    flex: 0 0 auto;
+    flex-direction: column;
+    gap: 41px;
+    position: relative;
+}
+
+.my-list .text-wrapper-2 {
+    color: #818895;
+    font-family: "Righteous-Regular", Helvetica;
+    font-size: 48px;
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -1px;
+    position: relative;
+    white-space: nowrap;
+    width: fit-content;
+}
+
+.my-list .group {
+    height: 98px;
+    position: relative;
+    width: 298px;
+}
+
+.my-list .good-morning-wrapper {
+    align-items: center;
+    background-color: #333e53;
+    border-radius: 50px;
+    box-shadow: 0px 4px 4px #00000040;
+    display: inline-flex;
+    gap: 10px;
+    justify-content: center;
+    overflow: hidden;
+    padding: 9px 38px;
+    position: relative;
+}
+
+.my-list .good-morning {
+    color: transparent;
+    font-family: "Righteous-Regular", Helvetica;
+    font-size: 32px;
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -1px;
+    position: relative;
+    text-align: center;
+    width: 220px;
+    height: fit-content;
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.my-list .span {
+    color: #d9d9d9;
+}
+
+.my-list .text-wrapper-3 {
+    color: #ffffff;
+}
+
+.my-list .text-wrapper-4 {
+    color: #ffc148;
+}
+
+.my-list .frame-3 {
+    align-items: center;
+    display: inline-flex;
+    flex: 0 0 auto;
+    flex-direction: column;
+    gap: 44px;
+    position: relative;
+}
+
+.my-list .todo-box {
+    height: 72px;
+    position: relative;
+    width: 690px;
+}
+
+.my-list .overlap-group {
+    background-image: url(./rectangle-4.svg);
+    background-size: 100% 100%;
+    height: 72px;
+    left: 1px;
+    position: relative;
+    width: 689px;
+}
+
+.my-list .image {
+    height: 30px;
+    left: 626px;
+    object-fit: cover;
+    position: absolute;
+    top: 20px;
+    width: 30px;
+}
+
+.my-list .frame-4 {
+    align-items: center;
+    display: inline-flex;
+    gap: 16px;
+    left: 17px;
+    position: absolute;
+    top: 22px;
+}
+
+.my-list .img {
+    height: 20px;
+    position: relative;
+    width: 84px;
+}
+
+.my-list .p {
+    color: #7f7f7f;
+    font-family: "Righteous-Regular", Helvetica;
+    font-size: 24px;
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -1px;
+    position: relative;
+    width: fit-content;
+}
+
+.my-list .text-wrapper-5 {
+    color: #d9d9d9;
+    font-family: "Righteous-Regular", Helvetica;
+    font-size: 40px;
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: normal;
+    position: relative;
+    white-space: nowrap;
+    width: fit-content;
+}
+
+.my-list .frame-5 {
+    align-items: flex-start;
+    display: flex;
+    gap: 23px;
+    height: 400px;
+    position: relative;
+    width: 611px;
+}
+
+.my-list .frame-6 {
+    align-items: flex-start;
+    display: inline-flex;
+    flex: 0 0 auto;
+    flex-direction: column;
+    gap: 34px;
+    margin-right: -8px;
+    position: relative;
+}
+
+.my-list .frame-7 {
+    align-items: flex-start;
+    display: inline-flex;
+    flex: 0 0 auto;
+    flex-direction: column;
+    gap: 10px;
+    position: relative;
+}
+
+.my-list .group-2 {
+    height: 72px;
+    position: relative;
+    width: 619px;
+}
+
+.my-list .frame-8 {
+    align-items: flex-end;
+    display: inline-flex;
+    gap: 32px;
+    left: 23px;
+    position: absolute;
+    top: 22px;
+}
+
+.my-list .frame-9 {
+    align-items: center;
+    display: inline-flex;
+    flex: 0 0 auto;
+    gap: 213px;
+    position: relative;
+}
+
+.my-list .frame-10 {
+    align-items: center;
+    display: inline-flex;
+    flex: 0 0 auto;
+    gap: 14px;
+    position: relative;
+}
+
+.my-list .ellipse {
+    background-color: #9289f3;
+    border-radius: 10px;
+    height: 20px;
+    position: relative;
+    width: 20px;
+}
+
+.my-list .text-wrapper-6 {
+    color: #333e53;
+    font-family: "Righteous-Regular", Helvetica;
+    font-size: 24px;
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: normal;
+    position: relative;
+    white-space: nowrap;
+    width: fit-content;
+}
+
+.my-list .frame-11 {
+    align-items: flex-start;
+    display: inline-flex;
+    flex: 0 0 auto;
+    gap: 11.58px;
+    position: relative;
+}
+
+.my-list .ellipse-2 {
+    background-color: #d9d9d9;
+    border: 2.23px solid;
+    border-color: #000000;
+    border-radius: 13.36px;
+    height: 26.71px;
+    position: relative;
+    width: 26.71px;
+}
+
+.my-list .image-2 {
+    height: 27.12px;
+    object-fit: cover;
+    position: relative;
+    width: 26.71px;
+}
+
+.my-list .frame-12 {
+    align-items: flex-end;
+    display: inline-flex;
+    gap: 32px;
+    left: 18px;
+    position: absolute;
+    top: 22px;
+}
+
+.my-list .frame-13 {
+    align-items: center;
+    display: inline-flex;
+    flex: 0 0 auto;
+    gap: 123px;
+    position: relative;
+}
+
+.my-list .ellipse-3 {
+    background-color: #e39090;
+    border-radius: 10px;
+    height: 20px;
+    position: relative;
+    width: 20px;
+}
+
+.my-list .frame-14 {
+    align-items: center;
+    display: flex;
+    gap: 179px;
+    position: relative;
+    width: 477px;
+}
+
+.my-list .ellipse-4 {
+    background-color: #87e69c;
+    border-radius: 10px;
+    height: 20px;
+    position: relative;
+    width: 20px;
+}
+
+.my-list .text-wrapper-7 {
+    color: #333e53;
+    font-family: "Righteous-Regular", Helvetica;
+    font-size: 24px;
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: normal;
+    margin-right: -2px;
+    position: relative;
+    white-space: nowrap;
+    width: fit-content;
+}
+
+.my-list .frame-15 {
+    align-items: flex-end;
+    display: flex;
+    gap: 32px;
+    left: 23px;
+    position: absolute;
+    top: 22px;
+    width: 574px;
+}
+
+.my-list .frame-16 {
+    align-items: center;
+    display: flex;
+    flex: 1;
+    flex-grow: 1;
+    gap: 153px;
+    position: relative;
+}
+
+.my-list .write-my-cv {
+    color: #b0b0b0;
+    font-family: "Righteous-Regular", Helvetica;
+    font-size: 24px;
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: normal;
+    position: relative;
+    white-space: nowrap;
+    width: fit-content;
+}
+
+.my-list .text-wrapper-8 {
+    color: #b0b0b0;
+    font-family: "Righteous-Regular", Helvetica;
+    font-size: 24px;
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: normal;
+    margin-right: -10px;
+    position: relative;
+    white-space: nowrap;
+    width: fit-content;
+}
+
+.my-list .line {
+    height: 5px;
+    left: 51px;
+    position: absolute;
+    top: 36px;
+    width: 463px;
+}
+
+.my-list .frame-17 {
+    flex: 0 0 auto;
+    margin-right: -43px;
+    position: relative;
+}
+
+/* New Style */
+input[type="text"],
+textarea {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+.done-task {
+  text-decoration: line-through;
+}
+
+.App {
+  text-align: center;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  height: 100vh;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-window {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 5px;
+  position: relative;
+}
+
+button {
+  margin-top: 1rem;
+}

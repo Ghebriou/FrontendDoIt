@@ -1,0 +1,266 @@
+.sign_in {
+    background-color: #d9d9d9;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+  }
+  
+  .parent {
+    background-color: #d9d9d9;
+    height: 1024px;
+    position: relative;
+    width: 1440px;
+  }
+  
+  .overlap {
+    background-color: #fafafa;
+    border-radius: 30px;
+    box-shadow: 0px 4px 0px transparent;
+    height: 680px;
+    left: 142px;
+    position: absolute;
+    top: 172px;
+    width: 1200px;
+  }
+  
+  .SigninAmico {
+    background-color: #333e53;
+    border-radius: 0px 30px 30px 0px;
+    height: 680px;
+    left: 600px;
+    position: absolute;
+    top: 0;
+    width: 600px;
+  }
+  
+  .computer_login_amico {
+    height: 386px;
+    left: 92px;
+    position: absolute;
+    top: 147px;
+    width: 415px;
+  }
+  
+  .overlap_2 {
+    height: 374px;
+    left: 64px;
+    position: absolute;
+    top: 203px;
+    width: 477px;
+  }
+  
+  .frame {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+    left: 0;
+    position: relative;
+  }
+  
+  .frame_2 {
+    align-items: flex-start;
+    display: flex;
+    flex: 0 0 auto;
+    flex-direction: column;
+    gap: 55px;
+    position: relative;
+  }
+  
+  .frame_3 {
+    align-items: flex-start;
+    display: flex;
+    flex: 0 0 auto;
+    flex-direction: column;
+    gap: 37px;
+    position: relative;
+  }
+  
+  .WELCOME_BACK {
+    color: #333e53;
+    font-family: "Inter-ExtraBold", Helvetica;
+    font-size: 35.2px;
+    font-weight: 800;
+    position: relative;
+  }
+  
+  .sign_in_to_continue {
+    color: #333e53;
+    font-family: "Inter-ExtraBold", Helvetica;
+    font-size: 18px;
+    font-weight: 800;
+    letter-spacing: 0;
+    line-height: normal;
+    position: relative;
+    text-align: center;
+    white-space: nowrap;
+    width: fit-content;
+    top: -30px;
+  }
+  
+  .email_password {
+    align-items: flex-start;
+    display: flex;
+    flex: 0 0 auto;
+    flex-direction: column;
+    position: relative;
+  }
+  
+  .form__group {
+    position: relative;
+    padding: 15px 0 0;
+    margin-top: 10px;
+    width: 100%;
+    top: -50px;
+  }
+  
+  .form__field {
+    font-family: inherit;
+    width: 477px;
+    border: 0;
+    border-bottom: 2px solid #070404;
+    outline: 0;
+    font-size: 1.3rem;
+    color: #200303;
+    padding: 7px 0;
+    background: transparent;
+    transition: border-color 0.2s;
+  
+  
+    &::placeholder {
+      color: transparent;
+    }
+  
+    &:placeholder-shown ~ .form__label {
+      font-size: 1.3rem;
+      cursor: text;
+      top: 20px;
+    }
+  }
+  
+  .form__label {
+    position: absolute;
+    top: 0;
+    display: block;
+    transition: 0.2s;
+    font-size: 1rem;
+    color: #9b9b9b;
+  }
+  
+  .form__field:focus {
+    ~ .form__label {
+      position: absolute;
+      top: 0;
+      display: block;
+      transition: 0.2s;
+      font-size: 1rem;
+      color: #333E53;
+      font-weight: 700;
+    }
+    padding-bottom: 6px;
+    font-weight: 700;
+    border-width: 3px;
+    border-image: linear-gradient(to right,#576a8d,#333E53);
+    border-image-slice: 1;
+  }
+  
+  /* reset input */
+  .form__field {
+    &:required,
+    &:invalid {
+      box-shadow: none;
+    }
+  }
+  
+  .icon_envelope,
+  .icon_lock {
+    position: relative;
+    top: -40px;
+    right: -450px; 
+  }
+  
+  
+  .login_btn{
+    height: 57px;
+    width: 458px;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    top: 350px;
+    left: 10px;
+    align-items: center;
+    background-color: #ffc148;
+    border-radius: 5px;
+    color: #ffffff;
+    font-family: "Istok Web-Bold", Helvetica;
+    font-size: 32.4px;
+    font-weight: bold;
+    border: none;
+    &:hover{
+    background-color: #b88520;
+    }
+  }
+  
+  
+  .frame_9 {
+    align-items: center;
+    display: flex;
+    gap: 91px;
+    left: 64px;
+    position: absolute;
+    top: 42px;
+  }
+  
+  .group {
+    height: 56px;
+    position: relative;
+    width: 188px;
+  }
+  
+  .do_it {
+    color: #ffc148;
+    font-family: "Inter-Bold", Helvetica;
+    font-size: 36px;
+    font-weight: bold;
+    left: 85px;
+    position: absolute;
+    top: 10px;
+  }
+  
+  .frame_10 {
+    align-items: flex-start;
+    display: flex;
+    flex: 0 0 auto;
+    gap: 27px;
+    position: relative;
+    top: -1px;
+  }
+  
+  .login1{
+    color: #333e53;
+    font-family: "Inter-Bold", Helvetica;
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -1px;
+    position: relative;
+    text-decoration: none;
+    white-space: nowrap;
+    width: fit-content;
+  }
+  
+  .signup1 {
+    color: #333e53;
+    text-decoration: none;
+    font-family: "Inter-Bold", Helvetica;
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: 0;
+    margin-top: -1px;
+    position: relative;
+    white-space: nowrap;
+    width: fit-content;
+  }
+  

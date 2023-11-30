@@ -1,0 +1,184 @@
+.home-page {
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+}
+
+.home-page .content {
+  background-color: #ffffff;
+  height: auto;
+  position: relative;
+  width: 1440px;
+}
+
+.home-page .HomeNav {
+  align-items: center;
+  display: inline-flex;
+  gap: 718px;
+  left: 71px;
+  position: absolute;
+  top: 40px;
+}
+
+.home-page .group {
+  height: 56px;
+  position: relative;
+  width: 188px;
+}
+
+.home-page .do-it {
+  color: #FFC148;
+  font-family: "Inter-Bold", Helvetica;
+  font-size: 36px;
+  font-weight: 700;
+  left: 85px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 14px;
+  white-space: nowrap;
+}
+
+.home-page .logo {
+  height: 56px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 85px;
+}
+
+.home-page .log {
+  align-items: flex-start;
+  display: inline-flex;
+  flex: 0 0 auto;
+  gap: 34px;
+  position: relative;
+}
+
+.home-page .login {
+  height: 64px;
+  width: 180px;
+}
+.home-page .log-in {
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 64px;
+  width: 180px;
+  background-color: white;
+  color: #FFC148;
+  font-family: "Inter-Bold", Helvetica;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+
+  &:hover {
+    border: 2px solid #FFC148;
+    border-radius: 20px;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+  }
+}
+
+.home-page .signup {
+  height: 64px;
+  width: 180px;
+}
+
+.home-page .sign-up {
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #FFC148;
+  border-radius: 20px;
+  font-family: "Inter-Bold", Helvetica;
+  font-size: 28px;
+  font-weight: bold;
+  height: 64px;
+  width: 180px;
+  cursor: pointer;
+  color: #ffffff;
+}
+.home-page .sign-up:hover {
+  background-color: #e9af3b;
+}
+
+.home-page .wlcm {
+  align-items: flex-start;
+  display: inline-flex;
+  flex-direction: column;
+  gap: 48px;
+  left: 71px;
+  position: absolute;
+  top: 316px;
+}
+
+.home-page .welcome-to-do-it {
+  color: transparent;
+  font-family: "Inter-Bold", Helvetica;
+  font-size: 52.9px;
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: normal;
+  margin-top: -1.1px;
+  position: relative;
+  width: 525.73px;
+}
+
+.home-page .span {
+  color: #273043;
+}
+
+.home-page .text-wrapper {
+  color: #FFC148;
+}
+
+.home-page .your-daily-game {
+  color: #273043;
+  font-family: "Inter-Medium", Helvetica;
+  font-size: 30.9px;
+  font-weight: 500;
+  letter-spacing: -0.46px;
+  line-height: 46.5px;
+  position: relative;
+  text-align: justify;
+  width: 580.83px;
+  top: -100px;
+}
+
+.home-page .tryitnow {
+  margin-top: -130px;
+}
+
+.home-page .try-it-now {
+  display: flex;
+  height: 64px;
+  width: 200px;
+  justify-content: center;
+  align-items: center;
+  font-size: 28px;
+  font-weight: bold;
+  text-decoration: none;
+  font-family: "Inter-Bold", Helvetica;
+  color: #ffffff;
+  background-color: #FFC148;
+  border-radius: 10px;
+  cursor: pointer;
+  &:hover {
+    background-color: #e9af3b;
+    color: #ffffff;
+  }
+}
+
+.home-page .to-do-list-amico {
+  position: absolute;
+  height: 628px;
+  left: 687px;
+  top: 206px;
+  width: 682px;
+}
+
