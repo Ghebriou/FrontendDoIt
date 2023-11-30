@@ -1,4 +1,4 @@
-import React, { useContext,useState } from "react";
+import React, {useState } from "react";
 import { Link, useNavigate } from 'react-router-dom';
 import styles from "./SignIn.module.css";
 import amico1 from "../assets/amicoLogin.svg";
@@ -7,11 +7,11 @@ import lock from "../assets/lock.svg";
 import envelop from "../assets/envelop.svg";
 import axios from 'axios';
 import { useCookies } from "react-cookie";
-import { createContext } from "react";
+
 
 export default function SignIn() {
-
-   // console.log(cookies)
+  const [cookies, setCookie, removeCookie] = useCookies(['token']);
+   console.log(cookies)
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -25,10 +25,6 @@ export default function SignIn() {
   };
    
   const navigate = useNavigate()
-
-  const TodoContext = createContext();
-  const todoContext = useContext(TodoContext);
-  const {cookieState, setCookieState, setCookie, cookies} = todoContext;
 
   const handleSignIn = async(e)=>{
     e.preventDefault();
@@ -52,8 +48,8 @@ export default function SignIn() {
         if(res.data.success){
             
             setCookie('token',res.data.token)
-            navigate('/home')
-            toast.success("Logged In")
+            navigate('/mylist');
+            alert("Logged In");
             
         }
         else{
@@ -61,9 +57,7 @@ export default function SignIn() {
         }
       
 
-        // setCookieState(cookies)
-        // if(res.data.token){
-        // }
+
 
             
 
