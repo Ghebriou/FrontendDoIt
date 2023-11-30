@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useCookies } from "react-cookie";
 import "../App.css";
+import { Link, useNavigate } from 'react-router-dom';
 
 export default function App() {
   const [tasks, setTasks] = useState([]);
@@ -14,13 +15,14 @@ export default function App() {
   const [taskDescription, setTaskDescription] = useState("");
   const [taskDone, setTaskDone] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState("");
-  const [cookies] = useCookies(['token']); 
-
+  const [cookies, setCookies,removeCookie] = useCookies();
+  
+  const navigate = useNavigate()
   const handleAddCategory = async () => {
     try {
       const response = await axios.post("http://localhost:3000/categories", {
         name: categoryName,
-    },{headers:{token:cookies.token}});
+    }, { headers: { token: cookies.token } } );
       
       setCategoryName("");
       console.log(response.data);
@@ -32,7 +34,7 @@ export default function App() {
   useEffect(() => { 
      const getCategories = async () => {
     try {
-      const res = await axios.get("http://localhost:3000/categories",{headers:{token:cookies.token}});
+      const res = await axios.get("http://localhost:3000/categories", { headers: { token: cookies.token } });
       setCategories(res.data);
     } catch (err) {
       console.log(err);
@@ -62,7 +64,7 @@ export default function App() {
         done: taskDone,
       };
 
-      const response = await axios.post("http://localhost:3000/tasks", task,{headers:{token:cookies.token}});
+      const response = await axios.post("http://localhost:3000/tasks", task,{ headers: { token: cookies.token } });
 
       console.log(response.data);
 
@@ -84,7 +86,7 @@ export default function App() {
 
   const getTasks = async () => {
     try {
-      const res = await axios.get("http://localhost:3000/tasks",{headers:{token:cookies.token}});
+      const res = await axios.get("http://localhost:3000/tasks",{ headers: { token: cookies.token } });
       setTasks(res.data);
     } catch (err) {
       console.log(err);
@@ -93,7 +95,7 @@ export default function App() {
 
   const handleDeleteTask = async (id) => {
     try {
-      await axios.delete(`http://localhost:3000/tasks/${id}`,{headers:{token:cookies.token}});
+      await axios.delete(`http://localhost:3000/tasks/${id}`,{ headers: { token: cookies.token } });
       setTasks(tasks.filter((task) => task._id !== id));
     } catch (err) {
       console.log(err);
@@ -113,9 +115,35 @@ export default function App() {
       console.log(err);
     }
   };
+   
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+     const getUser = async () => {
+       try {
+         const response = await axios.get('http://localhost:3000/getUser', {headers:{token:cookies.token}});
+         setUser(response.data.user);
+       } catch (err) {
+         console.error(err);
+       }
+     };
+ 
+     getUser();
+  }, []);
 
   return (
     <div>
+      <div>
+      {user ? (
+        <div>
+          <h1>Welcome, {user.name}</h1>
+          <p>Email: {user.email}</p>
+          <Link to="/updateProfile">Update Profile</Link>
+        </div>
+      ) : (
+        <p>Loading...</p>
+      )}
+    </div>
       <div className="App">
         <h1>Do-It!</h1>
         <div>
@@ -127,9 +155,11 @@ export default function App() {
           />
           <button onClick={handleAddCategory}>Add Category</button>
           <ul>
-            {categories.map((category) => (
-              <li key={category._id}>{category.name}</li>
-            ))}
+          {categories.map((category) => (
+          <li key={category._id}>
+            <p>Name: {category.name}</p>
+          </li>
+        ))}
           </ul>
         </div>
 
@@ -198,6 +228,11 @@ export default function App() {
               <button onClick={() => handleDeleteTask(task._id)}>Delete</button>
             </li>
           ))}
+          <button onClick={()=>{
+            removeCookie('token');
+            navigate('/');
+            alert("Logged Out");
+          }}> Logout </button>
         </div>
         <h1>Today's Tasks</h1>
         <h1>Tomorrow's Tasks</h1>
