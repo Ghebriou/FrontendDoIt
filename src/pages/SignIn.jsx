@@ -94,9 +94,10 @@ export default function SignIn() {
                       placeholder="Email"
                       value={email}
                       onChange={handleEmailChange}
+                      id="email"
                       required
                     />
-                    <label className={styles.form__label}>Email</label>
+                    <label className={styles.form__label} htmlFor="email">Email</label>
                     <img
                       className={styles.icon_envelope}
                       alt="Icon envelope"
@@ -111,8 +112,9 @@ export default function SignIn() {
                       value={password}
                       onChange={handlePasswordChange}
                       required
+                      id="password"
                     />
-                    <label className={styles.form__label}>Password</label>
+                    <label className={styles.form__label} htmlFor="password">Password</label>
                     <img
                       className={styles.icon_lock}
                       alt="Icon lock"

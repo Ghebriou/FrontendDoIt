@@ -1,5 +1,12 @@
 import React, { useState, useEffect } from "react";
-import "./MyList.css";
+import styles from "./MyList.module.css";
+import WebFont from "webfontloader";
+
+WebFont.load({
+  google: {
+    families: ["Risque Regular"],
+  },
+});
 
 export default function Mylist() {
   // Adding a clock to appears in our page !
@@ -103,18 +110,18 @@ export default function Mylist() {
   };
 
   return (
-    <div className="my-list">
-      <div className="frame-wrapper">
-        <div className="frame">
-          <div className="div">
-            <div className="text-wrapper">My list !</div>
-            <div className="frame-2">
-              <div className="text-wrapper-2">{formatAMPM(date)}</div>
-              <div className="group">
-                <div className="good-morning-wrapper">
-                  <p className="good-morning">
-                    <div className="span">{greet()},</div>
-                    <div className="text-wrapper-4">Yasmine! </div>
+    <div className={styles.my_list}>
+      <div className={styles.frame_wrapper}>
+        <div className={styles.frame}>
+          <div className={styles.div}>
+            <div className={styles.text_wrapper}>My list !</div>
+            <div className={styles.frame_2}>
+              <div className={styles.text_wrapper_2}>{formatAMPM(date)}</div>
+              <div className={styles.group}>
+                <div className={styles.good_morning_wrapper}>
+                  <p className={styles.good_morning}>
+                    <div className={styles.span}>{greet()},</div>
+                    <div className={styles.text_wrapper_4}> Aymen! </div>
                   </p>
                 </div>
               </div>
@@ -140,44 +147,70 @@ export default function Mylist() {
             <button onClick={handleOpenModal}>Add Task</button>
 
             {showModal && (
-              <div className="modal-overlay">
-                <div className="modal-window">
-                  <h2>Add Task</h2>
-                  <input
-                    type="text"
-                    placeholder="Enter Task Name"
-                    value={taskName}
-                    onChange={(e) => setTaskName(e.target.value)}
-                  />
-                  <input
-                    type="date"
-                    value={taskDate}
-                    onChange={(e) => setTaskDate(e.target.value)}
-                  />
-                  <input
-                    type="time"
-                    value={taskTime}
-                    onChange={(e) => setTaskTime(e.target.value)}
-                  />
-                  <textarea
-                    placeholder="Enter Task Description"
-                    value={taskDescription}
-                    onChange={(e) => setTaskDescription(e.target.value)}
-                  />
-                  <select
-                    value={taskCategory}
-                    onChange={(e) => setTaskCategory(e.target.value)}
-                  >
-                    <option value="">Select Category</option>
-                    {categories.map((category, index) => (
-                      <option key={index} value={category}>
-                        {category}
-                      </option>
-                    ))}
-                  </select>
-                  <button onClick={handleAddTask}>Add Task</button>
-                  <button onClick={handleCloseModal}>Cancel</button>
-                </div>
+              <div className={styles.modal_overlay}>
+                <form className={styles.modal_window}>
+                  <h2 className={styles.h2addtask}>Add Task!</h2>
+                  <div className={styles.AddContainer}>
+                    <div className={styles.Inputs}>
+                      <input
+                        placeholder="Title"
+                        className={styles.form__field}
+                        type="text"
+                        value={taskName}
+                        onChange={(e) => setTaskName(e.target.value)}
+                        id="name"
+                        required
+                      />
+                      <label className={styles.form__label} htmlFor="name">
+                        Title
+                      </label>
+                    </div>
+
+                    <div className={styles.Inputs}>
+                      <input
+                        className={styles.form__field}
+                        type="date"
+                        value={taskDate}
+                        onChange={(e) => setTaskDate(e.target.value)}
+                        required
+                      />
+                    </div>
+
+                    <div className={styles.Inputs}>
+                      <input
+                        className={styles.form__field}
+                        type="time"
+                        value={taskTime}
+                        onChange={(e) => setTaskTime(e.target.value)}
+                        required
+                      />
+                    </div>
+
+                    <div className={styles.Inputs}>
+                      <select
+                        className={styles.form__field}
+                        value={taskCategory}
+                        onChange={(e) => setTaskCategory(e.target.value)}
+                        required
+                      >
+                        <option value="">Select Category</option>
+                        {categories.map((category, index) => (
+                          <option key={index} value={category}>
+                            {category}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
+                  </div>
+                  <div className={styles.Addbtn}>
+                    <button className={styles.btn1} onClick={handleAddTask}>
+                      Add Task
+                    </button>
+                    <button className={styles.btn2} onClick={handleCloseModal}>
+                      Cancel
+                    </button>
+                  </div>
+                </form>
               </div>
             )}
           </div>
