@@ -2,13 +2,15 @@ import React, { useState, useEffect } from "react";
 import styles from "./MyList.module.css";
 import WebFont from "webfontloader";
 
-WebFont.load({
-  google: {
-    families: ["Risque Regular"],
-  },
-});
 
 export default function Mylist() {
+  
+  WebFont.load({
+    google: {
+      families: ["Risque Regular"],
+    },
+  });
+
   // Adding a clock to appears in our page !
   const [date, setDate] = useState(new Date());
   useEffect(() => {
@@ -203,11 +205,11 @@ export default function Mylist() {
                     </div>
                   </div>
                   <div className={styles.Addbtn}>
-                    <button className={styles.btn1} onClick={handleAddTask}>
-                      Add Task
-                    </button>
                     <button className={styles.btn2} onClick={handleCloseModal}>
                       Cancel
+                    </button>
+                    <button className={styles.btn1} onClick={handleAddTask}>
+                      Add 
                     </button>
                   </div>
                 </form>

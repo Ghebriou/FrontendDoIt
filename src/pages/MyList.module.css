@@ -439,7 +439,7 @@ button:hover {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 200px;
+    height: 120px;
     color: #ffffff;
     font-style: italic;
     font-size: 64px;
@@ -472,6 +472,7 @@ input[type="text"] {
     flex: 0 0 auto;
     flex-direction: column;
     position: relative;
+    gap: 18px;
   }
 .Inputs{
         position: relative;
@@ -519,6 +520,7 @@ input[type="text"] {
     color: #ffffff;
   }
   
+  
   .form__field:focus {
     ~ .form__label {
       position: absolute;
@@ -542,6 +544,7 @@ input[type="text"] {
       box-shadow:none;
     }
   }
+
   
   input[type="date"]::-webkit-calendar-picker-indicator {
     filter: invert(1);
@@ -560,8 +563,8 @@ input[type="text"] {
     gap: 38px;
  }
  .btn1 , .btn2{
-  font-size: 24px;
-  font-weight: 500;
+  font-size: 28px;
+  font-weight: 700;
   border: none;
   border-radius: 20px;
   width: 200px;
