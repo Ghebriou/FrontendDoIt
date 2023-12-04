@@ -1,6 +1,9 @@
 body {
   margin: 0;
 }
+.content{
+ /* i'll style it later  */
+}
 .my_list {
   background-color: #273043;
   display: flex;
@@ -434,7 +437,7 @@ button:hover {
   max-width: 90%;
   min-height: 300px;
 }
-
+ 
 .h2addtask {
     display: flex;
     justify-content: center;
@@ -446,24 +449,10 @@ button:hover {
     font-weight: 400;
     font-family: "Risque Regular", sans-serif;
    }
- /* button {
-    margin-top: 1rem;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    font-size: 18px;
-    font-weight: 500;
-    color: #ffffff;
-    cursor: pointer;
-    background-color: #273043f7;
-    transition: all 0.3s ease 0s;
-   }
-button:hover {
-  background-color: #434a66;
-} */
 
 input[type="text"] {
  width: 477px;
+ outline: none;
 }
 
 .AddContainer{
@@ -487,9 +476,9 @@ input[type="text"] {
 .form__field {
     font-family: inherit;
     width: 477px;
-    border: 0;
+    border: none;
     border-bottom: 2px solid #ffffff;
-    outline: 0;
+    outline: none;
     font-size: 1.3rem;
     color: #fff;
     padding: 7px 0;
@@ -507,7 +496,9 @@ input[type="text"] {
       cursor: text;
       top: 35px;
       left: 265px;
-      position: rel;
+      position: absolute;
+      outline: none;
+      border: none;
     }
   }
 
@@ -531,6 +522,8 @@ input[type="text"] {
       font-size: 1.3rem;
       color: #333E53;
       font-weight: 700;
+      outline: none;
+      border: none;
     }
     padding-bottom: 6px;
     font-weight: 700;

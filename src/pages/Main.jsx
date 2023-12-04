@@ -4,6 +4,7 @@ import { useCookies } from "react-cookie";
 import "../App.css";
 import { Link, useNavigate } from 'react-router-dom';
 
+
 export default function App() {
   const [tasks, setTasks] = useState([]);
   const [categories, setCategories] = useState([]);
@@ -146,6 +147,7 @@ export default function App() {
     </div>
       <div className="App">
         <h1>Do-It!</h1>
+
         <div>
           <input
             type="text"

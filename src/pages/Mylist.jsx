@@ -1,16 +1,8 @@
 import React, { useState, useEffect } from "react";
 import styles from "./MyList.module.css";
-import WebFont from "webfontloader";
-
+import Navaside from "../components/Navaside.jsx";
 
 export default function Mylist() {
-  
-  WebFont.load({
-    google: {
-      families: ["Risque Regular"],
-    },
-  });
-
   // Adding a clock to appears in our page !
   const [date, setDate] = useState(new Date());
   useEffect(() => {
@@ -111,160 +103,170 @@ export default function Mylist() {
     );
   };
 
+
+
+
+
+
   return (
-    <div className={styles.my_list}>
-      <div className={styles.frame_wrapper}>
-        <div className={styles.frame}>
-          <div className={styles.div}>
-            <div className={styles.text_wrapper}>My list !</div>
-            <div className={styles.frame_2}>
-              <div className={styles.text_wrapper_2}>{formatAMPM(date)}</div>
-              <div className={styles.group}>
-                <div className={styles.good_morning_wrapper}>
-                  <p className={styles.good_morning}>
-                    <div className={styles.span}>{greet()},</div>
-                    <div className={styles.text_wrapper_4}> Aymen! </div>
-                  </p>
+    <div className={styles.content}>
+      <div className={styles.my_list}>
+        <Navaside />
+        <div className={styles.frame_wrapper}>
+          <div className={styles.frame}>
+            <div className={styles.div}>
+              <div className={styles.text_wrapper}>My list !</div>
+              <div className={styles.frame_2}>
+                <div className={styles.text_wrapper_2}>{formatAMPM(date)}</div>
+                <div className={styles.group}>
+                  <div className={styles.good_morning_wrapper}>
+                    <p className={styles.good_morning}>
+                      <div className={styles.span}>{greet()},</div>
+                      <div className={styles.text_wrapper_4}> Aymen! </div>
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
 
-          <div>
-            <input
-              type="text"
-              placeholder="Enter Category"
-              value={categoryName}
-              onChange={(e) => setCategoryName(e.target.value)}
-            />
-            <button onClick={handleAddCategory}>Add Category</button>
-            <ul>
-              {categories.map((category, index) => (
-                <li key={index}>{category}</li>
-              ))}
-            </ul>
-          </div>
+            <div>
+              <input
+                type="text"
+                placeholder="Enter Category"
+                value={categoryName}
+                onChange={(e) => setCategoryName(e.target.value)}
+              />
+              <button onClick={handleAddCategory}>Add Category</button>
+              <ul>
+                {categories.map((category, index) => (
+                  <li key={index}>{category}</li>
+                ))}
+              </ul>
+            </div>
 
-          <div>
-            <button onClick={handleOpenModal}>Add Task</button>
+            <div>
+              <button onClick={handleOpenModal}>Add Task</button>
 
-            {showModal && (
-              <div className={styles.modal_overlay}>
-                <form className={styles.modal_window}>
-                  <h2 className={styles.h2addtask}>Add Task!</h2>
-                  <div className={styles.AddContainer}>
-                    <div className={styles.Inputs}>
-                      <input
-                        placeholder="Title"
-                        className={styles.form__field}
-                        type="text"
-                        value={taskName}
-                        onChange={(e) => setTaskName(e.target.value)}
-                        id="name"
-                        required
-                      />
-                      <label className={styles.form__label} htmlFor="name">
-                        Title
-                      </label>
+              {showModal && (
+                <div className={styles.modal_overlay}>
+                  <form className={styles.modal_window}>
+                    <h2 className={styles.h2addtask}>Add Task!</h2>
+                    <div className={styles.AddContainer}>
+                      <div className={styles.Inputs}>
+                        <input
+                          placeholder="Title"
+                          className={styles.form__field}
+                          type="text"
+                          value={taskName}
+                          onChange={(e) => setTaskName(e.target.value)}
+                          id="name"
+                          required
+                        />
+                        <label className={styles.form__label} htmlFor="name">
+                          Title
+                        </label>
+                      </div>
+
+                      <div className={styles.Inputs}>
+                        <input
+                          className={styles.form__field}
+                          type="date"
+                          value={taskDate}
+                          onChange={(e) => setTaskDate(e.target.value)}
+                          required
+                        />
+                      </div>
+
+                      <div className={styles.Inputs}>
+                        <input
+                          className={styles.form__field}
+                          type="time"
+                          value={taskTime}
+                          onChange={(e) => setTaskTime(e.target.value)}
+                          required
+                        />
+                      </div>
+
+                      <div className={styles.Inputs}>
+                        <select
+                          className={styles.form__field}
+                          value={taskCategory}
+                          onChange={(e) => setTaskCategory(e.target.value)}
+                          required
+                        >
+                          <option value="">Select Category</option>
+                          {categories.map((category, index) => (
+                            <option key={index} value={category}>
+                              {category}
+                            </option>
+                          ))}
+                        </select>
+                      </div>
                     </div>
-
-                    <div className={styles.Inputs}>
-                      <input
-                        className={styles.form__field}
-                        type="date"
-                        value={taskDate}
-                        onChange={(e) => setTaskDate(e.target.value)}
-                        required
-                      />
-                    </div>
-
-                    <div className={styles.Inputs}>
-                      <input
-                        className={styles.form__field}
-                        type="time"
-                        value={taskTime}
-                        onChange={(e) => setTaskTime(e.target.value)}
-                        required
-                      />
-                    </div>
-
-                    <div className={styles.Inputs}>
-                      <select
-                        className={styles.form__field}
-                        value={taskCategory}
-                        onChange={(e) => setTaskCategory(e.target.value)}
-                        required
+                    <div className={styles.Addbtn}>
+                      <button
+                        className={styles.btn2}
+                        onClick={handleCloseModal}
                       >
-                        <option value="">Select Category</option>
-                        {categories.map((category, index) => (
-                          <option key={index} value={category}>
-                            {category}
-                          </option>
-                        ))}
-                      </select>
+                        Cancel
+                      </button>
+                      <button className={styles.btn1} onClick={handleAddTask}>
+                        Add
+                      </button>
                     </div>
-                  </div>
-                  <div className={styles.Addbtn}>
-                    <button className={styles.btn2} onClick={handleCloseModal}>
-                      Cancel
-                    </button>
-                    <button className={styles.btn1} onClick={handleAddTask}>
-                      Add 
-                    </button>
-                  </div>
-                </form>
-              </div>
-            )}
-          </div>
-          <div>
-            <h1>Today's Tasks</h1>
-            <ul>
-              {tasksToday.map((task) => (
-                <li key={task.name}>
-                  <h2>{task.name}</h2>
-                  <p>{task.description}</p>
-                  <p>
-                    {new Date(task.date).toLocaleDateString()} {task.time}
-                  </p>
-                  <p>{task.category}</p>
-                </li>
-              ))}
-            </ul>
-          </div>
+                  </form>
+                </div>
+              )}
+            </div>
+            <div>
+              <h1>Today's Tasks</h1>
+              <ul>
+                {tasksToday.map((task) => (
+                  <li key={task.name}>
+                    <h2>{task.name}</h2>
+                    <p>{task.description}</p>
+                    <p>
+                      {new Date(task.date).toLocaleDateString()} {task.time}
+                    </p>
+                    <p>{task.category}</p>
+                  </li>
+                ))}
+              </ul>
+            </div>
 
-          <div>
-            <h1>Tomorrow's Tasks</h1>
-            <ul>
-              {tasksTomorrow.map((task) => (
-                <li key={task.name}>
-                  <h2>{task.name}</h2>
-                  <p>{task.description}</p>
-                  <p>
-                    {new Date(task.date).toLocaleDateString()} {task.time}
-                  </p>
-                  <p>{task.category}</p>
-                </li>
-              ))}
-            </ul>
-          </div>
+            <div>
+              <h1>Tomorrow's Tasks</h1>
+              <ul>
+                {tasksTomorrow.map((task) => (
+                  <li key={task.name}>
+                    <h2>{task.name}</h2>
+                    <p>{task.description}</p>
+                    <p>
+                      {new Date(task.date).toLocaleDateString()} {task.time}
+                    </p>
+                    <p>{task.category}</p>
+                  </li>
+                ))}
+              </ul>
+            </div>
 
-          <div>
-            <h1>Upcoming Tasks</h1>
-            <ul>
-              {tasksUpcoming.map((task) => (
-                <li key={task.name}>
-                  <h2>{task.name}</h2>
-                  <p>{task.description}</p>
-                  <p>
-                    {new Date(task.date).toLocaleDateString()} {task.time}
-                  </p>
-                  <p>{task.category}</p>
-                </li>
-              ))}
-            </ul>
-          </div>
+            <div>
+              <h1>Upcoming Tasks</h1>
+              <ul>
+                {tasksUpcoming.map((task) => (
+                  <li key={task.name}>
+                    <h2>{task.name}</h2>
+                    <p>{task.description}</p>
+                    <p>
+                      {new Date(task.date).toLocaleDateString()} {task.time}
+                    </p>
+                    <p>{task.category}</p>
+                  </li>
+                ))}
+              </ul>
+            </div>
 
-          {/* <div className="frame-3">
+            {/* <div className="frame-3">
             <div className="todo-box">
               <div className="overlap-group">
                 <img className="image" alt="Image" src="image-10.png" />
@@ -358,6 +360,7 @@ export default function Mylist() {
               <img className="frame-17" alt="Frame" src="frame-88.svg" />
             </div> 
           </div>*/}
+          </div>
         </div>
       </div>
     </div>
