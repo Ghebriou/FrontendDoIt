@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import styles from "./MyList.module.css";
 import Navaside from "../components/Navaside.jsx";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function Mylist() {
   // Adding a clock to appears in our page !
@@ -39,10 +41,23 @@ export default function Mylist() {
   const [tasksToday, setTasksToday] = useState([]);
   const [tasksTomorrow, setTasksTomorrow] = useState([]);
   const [tasksUpcoming, setTasksUpcoming] = useState([]);
+  
+  const notify = () => {
+    toast.success("New task added!", {
+      position: "top-right",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+  };
 
   const handleAddCategory = () => {
     setCategories([...categories, categoryName]);
     setCategoryName("");
+    notify();
   };
 
   const handleOpenModal = () => {
@@ -104,10 +119,6 @@ export default function Mylist() {
   };
 
 
-
-
-
-
   return (
     <div className={styles.content}>
       <div className={styles.my_list}>
@@ -137,6 +148,7 @@ export default function Mylist() {
                 onChange={(e) => setCategoryName(e.target.value)}
               />
               <button onClick={handleAddCategory}>Add Category</button>
+              <ToastContainer />
               <ul>
                 {categories.map((category, index) => (
                   <li key={index}>{category}</li>
