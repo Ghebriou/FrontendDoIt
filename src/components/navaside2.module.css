@@ -1,0 +1,259 @@
+.nav_side {
+  position: fixed;
+  top: 0;
+  right: 0px;  
+  height: 95vh;
+  width: 307px;
+  margin: 30px;
+  background-color: #333e53;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 20px;
+  gap: 10px;
+  box-sizing: border-box;
+  border-radius: 45px;
+}
+.navside {
+  align-items: flex-start;
+  display: inline-flex;
+  flex-direction: column;
+  left: 10px;
+  position: relative;
+  top: 47px;
+  /* max-width: 90%; */
+  min-height: 300px;
+}
+.user_picture {
+  height: 20px;
+  width: 20px;
+  position: relative;
+  bottom: 25px;
+}
+.user_picture::after{
+    content: "";
+    display: block;
+    width: 250px;
+    height: 1px;
+    background-color: #ffffff;
+    margin: 1px 0;
+    position: relative;
+    top:15px 
+  }
+.calendar {
+  margin-top: 80px;
+  min-width: 100%; /* Adjust the width to fill the container */
+  height: 60%; /* Adjust the height as needed */
+  overflow: hidden; /* Hide overflowing content */
+}
+.calendar::after{
+    content: "";
+    display: block;
+    width: 250px;
+    height: 1px;
+    background-color: #ffffff;
+    margin-top: -40px;
+    position: absolute; 
+
+  }
+
+.task_details {
+  margin-top: -20px;
+  font-weight: bolder;
+  font-size: 22px;
+  color: #ffffff;
+  margin-left: 10px;
+  margin-bottom: 20px;
+}
+.clr{
+    color: #FFC148;
+}
+
+.add_task {
+  margin-top: auto;
+}
+.add_task::before{
+    content: "";
+    display: block;
+    width: 250px;
+    height: 1px;
+    background-color: #ffffff;
+    margin: 1px 0;
+    position: absolute;    
+  }
+
+.add_task_btn {
+  background-color: #FFC148;
+  padding: 10px 20px;
+  width: 220px;
+  height: 60px;
+  margin-left: 15px;
+  margin-top: 35px;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  font-size: 28px;
+  font-weight: bolder;
+  color: #ffffff;
+  transition: all;
+}
+.add_task_btn:hover{
+    color: rgb(247, 255, 224);
+}
+
+
+
+.modal_overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.modal_window {
+  font-family: "Risque Regular", sans-serif;
+  background-color: #273043f7;
+  border-radius: 20px;
+  box-shadow: 0px 6px 6px #00000040;
+  padding: 2rem;
+  position: relative;
+  width: 1000px;
+  height: 800px;
+  max-width: 90%;
+  min-height: 300px;
+}
+ 
+.h2addtask {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 120px;
+    color: #ffffff;
+    font-style: italic;
+    font-size: 64px;
+    font-weight: 400;
+    font-family: "Risque Regular", sans-serif;
+   }
+
+input[type="text"] {
+ width: 477px;
+ outline: none;
+}
+
+.AddContainer{
+    align-items: flex-start;
+    display: flex;
+    flex: 0 0 auto;
+    flex-direction: column;
+    position: relative;
+    gap: 18px;
+  }
+.Inputs{
+        position: relative;
+        padding: 15px 0 0;
+        margin-top: 10px;
+        width: 100%;
+        top: -50px;
+        display: flex;
+        justify-content: center;
+}
+
+.form__field {
+    font-family: inherit;
+    width: 477px;
+    border: none;
+    border-bottom: 2px solid #ffffff;
+    outline: none;
+    font-size: 1.3rem;
+    color: #fff;
+    padding: 7px 0;
+    background-color: #273043f7;
+    transition: border-color 0.2s;
+  
+  
+    &::placeholder {
+      color: transparent;
+    }
+  
+    &:placeholder-shown ~ .form__label {
+      font-size: 1.3rem;
+      font-weight: bolder;
+      cursor: text;
+      top: 35px;
+      left: 265px;
+      position: absolute;
+      outline: none;
+      border: none;
+    }
+  }
+
+  .form__label {
+    position: absolute;
+    top: 0;
+    display: block;
+    transition: 0.2s;
+    font-size: 1.3rem;
+    color: #ffffff;
+  }
+  
+  
+  .form__field:focus {
+    ~ .form__label {
+      position: absolute;
+      top: 0;
+      left: 265px;
+      display: block;
+      transition: 0.2s;
+      font-size: 1.3rem;
+      color: #333E53;
+      font-weight: 700;
+      outline: none;
+      border: none;
+    }
+    padding-bottom: 6px;
+    font-weight: 700;
+    border-width: 3px;
+    border-image: linear-gradient(to right,#576a8d,#333E53);
+    border-image-slice: 1;
+  }
+  .form__field {
+    &:required,
+    &:invalid {
+      box-shadow:none;
+    }
+  }
+
+  
+  input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+   }
+   input[type="time"]::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+   }
+ 
+ .Addbtn{
+  margin-top: 40px;
+    position: relative;
+    display: flex ;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 38px;
+ }
+ .btn1 , .btn2{
+  font-size: 28px;
+  font-weight: 700;
+  border: none;
+  border-radius: 20px;
+  width: 200px;
+  height: 80px;
+  padding: 10px 20px;
+  background-color: #D9D9D9;
+  transition: all 0.3s ease 0s;
+}

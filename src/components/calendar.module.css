@@ -1,0 +1,98 @@
+.calendar {
+  margin-left: -6px;
+  min-width: 230px;
+  height: 350px;
+  border-radius: 12px;
+  background-color: transparent;
+  color: #fff;
+  font-weight: bolder;
+  padding: 10px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.calendarHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  color: #fff;
+}
+
+.navIcon {
+  cursor: pointer;
+  font-size: 18px;
+  color: #fff;
+}
+
+.monthYear {
+  font-size: 16px;
+  font-weight: bolder;
+  cursor: pointer;
+}
+
+.calendarBody {
+  display: flex;
+  flex-direction: column;
+}
+
+.calendarWeekDay {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  font-size: 14px;
+  font-weight: bolder;
+  color: #fff;
+  margin-bottom: 5px;
+  margin-top: 10px;
+  margin-left: 10px;
+  color: #FFC148;
+  grid-gap: 15px;
+}
+
+.calendarDays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 5px;
+}
+
+.calendarDay {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.calendarDay:hover{
+  cursor: pointer;
+  background-color: #FFC148;
+  color: #333E53;
+}
+
+.currDay {
+  background-color: #FFC148;
+  color: #333E53;
+}
+
+.monthList {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  padding: 10px;
+  background-color: transparent;
+  border-radius: 8px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  position: absolute;
+  top: 35px;
+  left: 0;
+  width: calc(100% + 20px);
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0.2s, opacity 0.2s;
+}
+
+.show {
+  visibility: visible;
+  opacity: 1;
+}

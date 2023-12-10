@@ -18,6 +18,12 @@ export default function App() {
   const [selectedCategory, setSelectedCategory] = useState("");
   const [cookies, setCookies,removeCookie] = useCookies();
   
+   
+  const totalTasks = tasks.length;
+  const doneTasks = tasks.filter(task => task.done).length;
+  const notDoneTasks = tasks.filter(task => !task.done).length;
+
+
   const navigate = useNavigate()
   const handleAddCategory = async () => {
     try {
@@ -214,6 +220,7 @@ export default function App() {
             </div>
           )}
         </div>
+        
         <h1>Tasks</h1>
         <div>
           {tasks.map((task) => (
@@ -236,9 +243,9 @@ export default function App() {
             alert("Logged Out");
           }}> Logout </button>
         </div>
-        <h1>Today's Tasks</h1>
-        <h1>Tomorrow's Tasks</h1>
-        <h1>Upcoming Tasks</h1>
+        <h3>Total Tasks: {totalTasks}</h3>
+        <h3>Done Tasks: {doneTasks}</h3>
+        <h3>Not Done Tasks: {notDoneTasks}</h3>
       </div>
     </div>
   );

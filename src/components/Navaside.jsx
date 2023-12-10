@@ -13,10 +13,23 @@ import logout from "../assets/logout.svg";
 import category from "../assets/addlist.svg";
 
 const Navaside = () => {
+  const [categories, setCategories] = useState([]);
+  const [selectedCategory, setSelectedCategory] = useState("");
+  const [categoryName, setCategoryName] = useState("");
   const [cookies, setCookies, removeCookie] = useCookies();
   const navigate = useNavigate();
-  const [categories, setCategories] = useState([]);
-  const [categoryName, setCategoryName] = useState("");
+
+  const notify = () => {
+    toast.success("New task added!", {
+      position: "top-right",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+  };
 
   const handleAddCategory = async () => {
     try {
@@ -49,6 +62,13 @@ const Navaside = () => {
     getCategories();
   }, []);
 
+  const handleKeyDown = (event) => {
+    if (event.key === "Enter") {
+      event.preventDefault(); // Prevent default form submission behavior
+      handleAddCategory();
+    }
+  };
+
   return (
     <div className={styles.frame}>
       <div className={styles.frame_2}>
@@ -65,44 +85,44 @@ const Navaside = () => {
 
             <div className={styles.frame_9}>
               <div className={styles.group2}>
-                <Link to="/" className={styles.frame_10}>
+                <Link to="/mylist" className={styles.frame_10}>
                   <img className={styles.mylist} alt="Image" src={mylist} />
                   <div className={styles.text_wrapper_8}>My list!</div>
                 </Link>
 
                 {/* Add Category */}
                 <div className={styles.frame_11}>
-                  <div className={styles.frame_12}>
-                    <div className={styles.categorycolor} />
-                    <div className={styles.text_wrapper_9}>STUDY</div>
+                  <div className={styles.catadd}>
+                    <form className={styles.frame_12}>
+                      <img
+                        className={styles.vector}
+                        alt="Vector"
+                        src={category}
+                      />
+                      <input
+                        type="text"
+                        className={styles.text_wrapper_10}
+                        placeholder="Add Category"
+                        value={categoryName}
+                        onChange={(e) => setCategoryName(e.target.value)}
+                        onKeyDown={handleKeyDown}
+                      />{" "}
+                    </form>
                   </div>
-                  <div className={styles.frame_12}>
-                    <div className={styles.categorycolor} />
-                    <div className={styles.text_wrapper_9}>WORK</div>
-                  </div>
-                  <div className={styles.frame_12}>
-                    <div className={styles.categorycolor} />
-                    <div className={styles.text_wrapper_9}>PERSONAL</div>
-                  </div>
-                  <form className={styles.frame_12}>
-                    <img
-                      className={styles.vector}
-                      alt="Vector"
-                      src={category}
-                    />
-                    <input
-                      type="text"
-                      className={styles.text_wrapper_10}
-                      placeholder="Add Category"
-                      value={categoryName}
-                      onChange={(e) => setCategoryName(e.target.value)}
-                    />
-                  </form>
+
+                  {categories.map((category) => (
+                    <div className={styles.frame_12} key={category._id}>
+                      <div className={styles.categorycolor} />
+                      <div className={styles.text_wrapper_9}>
+                        {category.name}
+                      </div>
+                    </div>
+                  ))}
                 </div>
               </div>
 
               <div className={styles.sections}>
-                <Link to="/" className={styles.frame_14}>
+                <Link to="/scheduled" className={styles.frame_14}>
                   <img className={styles.image} alt="Image" src={scheduled} />
                   <div className={styles.text_wrapper_8}>Scheduled</div>
                 </Link>
@@ -116,21 +136,20 @@ const Navaside = () => {
                   <img className={styles.image} alt="Image" src={settings} />
                   <div className={styles.text_wrapper_8}>Settings</div>
                 </Link>
-
-                <div className={styles.frame_15}>
-                  <div className={styles.frame_16}>
-                    <img className={styles.image_5} alt="Image" src={logout} />
-                    <button
-                      className={styles.logout}
-                      onClick={() => {
-                        removeCookie("token");
-                        navigate("/");
-                        alert("Logged Out");
-                      }}
-                    >
-                      Sign Out
-                    </button>
-                  </div>
+              </div>
+              <div className={styles.frame_15}>
+                <div className={styles.frame_16}>
+                  <img className={styles.image_5} alt="Image" src={logout} />
+                  <button
+                    className={styles.logout}
+                    onClick={() => {
+                      removeCookie("token");
+                      navigate("/");
+                      alert("Logged out Successfully!");
+                    }}
+                  >
+                    Sign Out
+                  </button>
                 </div>
               </div>
             </div>

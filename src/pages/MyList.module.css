@@ -1,15 +1,15 @@
 body {
-  margin: 0;
-}
-.content{
- /* i'll style it later  */
-}
+margin: 0px;
+padding: 0px;
+} 
+
 .my_list {
   background-color: #273043;
   display: flex;
   flex-direction: row;
   justify-content: center;
-  width: 100%;
+  min-width:980px ;
+  min-height:3160px;
 }
 
 .frame_wrapper {
@@ -129,19 +129,14 @@ body {
   position: relative;
 }
 
-.todo_box {
-  height: 72px;
-  position: relative;
-  width: 690px;
-}
 
-.overlap_group {
-  background-image: url(./rectangle-4.svg);
+.overlap_group { 
   background-size: 100% 100%;
   height: 72px;
   left: 1px;
   position: relative;
-  width: 689px;
+  width: 690px;
+  border-radius: 30px;
 }
 
 .image {
@@ -162,6 +157,7 @@ body {
 }
 
 .img {
+  bottom: 10px;
   height: 20px;
   position: relative;
   width: 84px;
@@ -179,11 +175,22 @@ body {
   width: fit-content;
 }
 
+.distask{
+  top: 45px;
+  align-items: center;
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  gap: 45px;
+  position: relative;
+}
 .text_wrapper_5 {
+  display: flex;
+  justify-content: center;
   color: #d9d9d9;
   font-family: "Righteous-Regular", Helvetica;
   font-size: 40px;
-  font-weight: 400;
+  font-weight: bold;
   letter-spacing: 0;
   line-height: normal;
   position: relative;
@@ -191,16 +198,17 @@ body {
   width: fit-content;
 }
 .frame_5 {
-  align-items: flex-start;
+  align-items: flex;
   display: flex;
-  gap: 23px;
-  height: 400px;
+  gap: 45px;
+  /* height:400px; */
   position: relative;
   width: 611px;
+  margin-bottom: 80px;
 }
 
 .frame_6 {
-  align-items: flex-start;
+  /* align-items: flex-start; */
   display: inline-flex;
   flex: 0 0 auto;
   flex-direction: column;
@@ -211,26 +219,37 @@ body {
 
 .frame_7 {
   align-items: flex-start;
-  display: inline-flex;
+  display: block;
   flex: 0 0 auto;
   flex-direction: column;
   gap: 10px;
   position: relative;
-}
-
-.group_2 {
-  height: 72px;
-  position: relative;
+  /* top: 22px; */
   width: 619px;
+  height: 72px;
+  background-color: #D9D9D9;
+  border-radius: 30px;
+  padding: 40px;
+  margin: 20px;
 }
 
 .frame_8 {
   align-items: flex-end;
-  display: inline-flex;
+  display: inline-block;
   gap: 32px;
   left: 23px;
-  position: absolute;
+  position: relative;
   top: 22px;
+  width: 619px;
+  height: 72px;
+  background-color: #D9D9D9;
+  border-radius: 30px;
+  margin-bottom:20px ;
+}
+
+.btnT{
+  border: none;  
+  background-color: transparent;
 }
 
 .frame_9 {
@@ -239,6 +258,7 @@ body {
   flex: 0 0 auto;
   gap: 213px;
   position: relative;
+  bottom: 20px;
 }
 
 .frame_10 {
@@ -250,7 +270,7 @@ body {
 }
 
 .ellipse {
-  background-color: #9289f3;
+  background-color: #E39090;
   border-radius: 10px;
   height: 20px;
   position: relative;
@@ -260,8 +280,8 @@ body {
 .text_wrapper_6 {
   color: #333e53;
   font-family: "Righteous-Regular", Helvetica;
-  font-size: 24px;
-  font-weight: 400;
+  font-size: 26px;
+  font-weight: bold;
   letter-spacing: 0;
   line-height: normal;
   position: relative;
@@ -275,99 +295,26 @@ body {
   flex: 0 0 auto;
   gap: 11.58px;
   position: relative;
+  bottom: 20px; 
+  margin-left: 140px;
 }
 
 .ellipse_2 {
   background-color: #d9d9d9;
-  border: 2.23px solid;
-  border-color: #000000;
-  border-radius: 13.36px;
-  height: 26.71px;
-  position: relative;
-  width: 26.71px;
+  height: 30px;
+  position: reabsative;
+  width: 30px;
 }
 
 .image_2 {
-  height: 27.12px;
+  height: 30.46px;
   object-fit: cover;
   position: relative;
-  width: 26.71px;
+  width: 30px;
 }
 
-.frame_12 {
-  align-items: flex-end;
-  display: inline-flex;
-  gap: 32px;
-  left: 18px;
-  position: absolute;
-  top: 22px;
-}
-
-.frame_13 {
-  align-items: center;
-  display: inline-flex;
-  flex: 0 0 auto;
-  gap: 123px;
-  position: relative;
-}
-
-.ellipse_3 {
-  background-color: #e39090;
-  border-radius: 10px;
-  height: 20px;
-  position: relative;
-  width: 20px;
-}
-
-.frame_14 {
-  align-items: center;
-  display: flex;
-  gap: 179px;
-  position: relative;
-  width: 477px;
-}
-
-.ellipse_4 {
-  background-color: #87e69c;
-  border-radius: 10px;
-  height: 20px;
-  position: relative;
-  width: 20px;
-}
-
-.text_wrapper_7 {
-  color: #333e53;
-  font-family: "Righteous-Regular", Helvetica;
-  font-size: 24px;
-  font-weight: 400;
-  letter-spacing: 0;
-  line-height: normal;
-  margin-right: -2px;
-  position: relative;
-  white-space: nowrap;
-  width: fit-content;
-}
-
-.frame_15 {
-  align-items: flex-end;
-  display: flex;
-  gap: 32px;
-  left: 23px;
-  position: absolute;
-  top: 22px;
-  width: 574px;
-}
-
-.frame_16 {
-  align-items: center;
-  display: flex;
-  flex: 1;
-  flex-grow: 1;
-  gap: 153px;
-  position: relative;
-}
-
-.write_my_cv {
+ 
+/* .done{
   color: #b0b0b0;
   font-family: "Righteous-Regular", Helvetica;
   font-size: 24px;
@@ -377,42 +324,11 @@ body {
   position: relative;
   white-space: nowrap;
   width: fit-content;
-}
+} */
 
-.text_wrapper_8 {
-  color: #b0b0b0;
-  font-family: "Righteous-Regular", Helvetica;
-  font-size: 24px;
-  font-weight: 400;
-  letter-spacing: 0;
-  line-height: normal;
-  margin-right: -10px;
-  position: relative;
-  white-space: nowrap;
-  width: fit-content;
-}
+ 
 
-.line {
-  height: 5px;
-  left: 51px;
-  position: absolute;
-  top: 36px;
-  width: 463px;
-}
-
-.frame_7 {
-  flex: 0 0 auto;
-  margin-right: -43px;
-  position: relative;
-}
-
-/* New Style */
-button:hover {
-  opacity: 0.8;
-}
-.done_task {
-  text-decoration: line-through;
-}
+ 
 
 .modal_overlay {
   position: fixed;
@@ -566,3 +482,42 @@ input[type="text"] {
   background-color: #D9D9D9;
   transition: all 0.3s ease 0s;
 }
+
+/* styling 2 pour les tasks */
+/* styles.css */
+
+.tasks_container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.task {
+  display: flex;
+  align-items: center;
+  background-color: #D9D9D9;
+  border-radius: 30px;
+  padding: 16px;
+  margin-bottom: 32px;
+  width: 80%; /* Adjust the width as needed */
+}
+.task_info {
+  flex: 1;
+  display: flex;
+  margin-right: 16px;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.task_actions {
+  display: flex;
+  align-items: center;
+  position: relative;
+  bottom: 10px;
+}
+
+.done_task {
+  text-decoration: line-through;
+  color: #b0b0b0; 
+}
+

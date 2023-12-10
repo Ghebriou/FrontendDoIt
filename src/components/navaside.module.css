@@ -141,8 +141,31 @@
   left: 46px;
   position: relative;
   top: 50px;
-  max-height: 50px;
+  min-height: 150px;
+  max-height: 100px;
+  overflow-y: auto; /* bch tdir scroll 3la Y */
+  border: none;
+  padding-right: 20px; 
+  }
+ 
+.frame_11::-webkit-scrollbar-thumb {
+  background-color: #7b8aa7;  
+  border-radius: 5px;  
+}
 
+/* Optionally style other parts of the scrollbar */
+.frame_11::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Hide the scrollbar buttons (arrows) */
+.frame_11::-webkit-scrollbar-button {
+  display: none;
+}
+
+/* Optionally style the scrollbar corner */
+.frame_11::-webkit-scrollbar-corner {
+  background-color: transparent;
 }
 
 .frame_12 {
@@ -151,10 +174,14 @@
   flex: 0 0 auto;
   gap: 10px;
   position: relative;
+  bottom: 30px;
+  left: 5px;
+
 }
 
 .categorycolor {
-  background-color: #e39090;
+  /* background-color: #e39090; */
+  background-color: #1ca728;
   border-radius: 7px;
   height: 14px;
   position: relative;
@@ -162,10 +189,10 @@
 }
 
 .text_wrapper_9 {
-  color: #000000;
+  color: #333E53;
   font-family: "Righteous-Regular", Helvetica;
-  font-size: 11px;
-  font-weight: 400;
+  font-size: 15px;
+  font-weight: 500;
   letter-spacing: 0;
   line-height: normal;
   position: relative;
@@ -177,6 +204,7 @@
   height: 14px;
   position: relative;
   width: 14px;
+  top: 20px;
 }
 
 .text_wrapper_10 {
@@ -184,16 +212,14 @@
   background-color: transparent;
   border: none;
   font-family: "Righteous-Regular", Helvetica;
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 400;
-  letter-spacing: 0;
-  line-height: normal;
   position: relative;
   outline: none;
   max-height: fit-content;
   max-width: 140px;
   right: 20px;
-  
+  top: 20px;
 }
 
 
@@ -204,7 +230,7 @@
   flex-direction: column;
   gap: 24px;
   position: relative;
-  top: 150px;
+  top: 52px;
 }
 
 .frame_14 {
@@ -239,7 +265,7 @@
   flex-direction: column;
   gap: 28px;
   position: relative;
-  top: 145px;
+  top: 180px;
 }
 
 .frame_16 {
@@ -274,9 +300,7 @@
   bottom: 8px;
 }
 
-Link:hiver{
-  color: #FFC148;
-}
+ 
 
 
 

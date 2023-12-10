@@ -48,7 +48,7 @@ export default function SignIn() {
         if(res.data.success){
             
             setCookie('token',res.data.token)
-            navigate('/home');
+            navigate('/mylist');
             alert("Logged In");
             
         }
