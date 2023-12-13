@@ -8,9 +8,10 @@
   
   .parent {
     background-color: #d9d9d9;
-    height: 1024px;
+    height: 100vh;
     position: relative;
     width: 1440px;
+    bottom:45px;
   }
   
   .overlap {

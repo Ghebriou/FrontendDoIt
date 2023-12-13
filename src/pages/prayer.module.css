@@ -1,0 +1,84 @@
+.prayer {
+  background-color: #273043;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+}
+
+.container {
+  font-family: Arial, sans-serif;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 20px;
+  border: none;
+  border-radius: 45px;
+  background-color: #333E53;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  color: #D9D9D9;
+  width: 80%;
+  max-width: 1100px;
+  position: relative;
+  top: 110px;
+}
+
+.content {
+  border: 1px solid #ccc;
+  border-radius: 55px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 1000px;
+  min-height: 650px;
+}
+
+.content h2 {
+  font-size: 48px;
+  position: relative;
+  top: 40px;
+  margin-bottom: 100px;
+  font-weight: 600;
+}
+
+.content p {
+  margin-bottom: 10px;
+  color: #D9D9D9;
+}
+
+.content ul {
+  list-style: none;
+  padding: 0;
+}
+
+.content li {
+  margin-bottom: 8px;
+  color: #D9D9D9; 
+  font-size: 18px;
+}
+
+.content .nextPrayer {
+  font-weight: bold;
+  color: red; 
+}
+
+.content .prayers{
+  display: flex;
+  border: 1px solid #D9D9D9;
+  position: relative;
+  width: 400px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 25px 0 25px 0;
+  margin-top: 70px;
+}
+.txt{
+  color: #FFC148;
+  font-weight: normal;
+}
+.headings{
+  text-align: left;
+  font-weight: bolder;
+  font-size: 22px;
+}
+  

@@ -196,7 +196,8 @@ input[type="text"] {
   .form__label {
     position: absolute;
     top: 0;
-    display: block;
+    left: 260px;
+    display: inline-block;
     transition: 0.2s;
     font-size: 1.3rem;
     color: #ffffff;
@@ -207,7 +208,7 @@ input[type="text"] {
     ~ .form__label {
       position: absolute;
       top: 0;
-      left: 265px;
+      left: 260px;
       display: block;
       transition: 0.2s;
       font-size: 1.3rem;
@@ -227,6 +228,13 @@ input[type="text"] {
     &:invalid {
       box-shadow:none;
     }
+  }
+
+  .Inputs > .title{
+ margin-bottom: 40px;
+    padding: 13px 0px;
+    margin: 0px 0;
+    box-sizing: border-box;
   }
 
   

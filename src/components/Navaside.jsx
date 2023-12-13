@@ -11,6 +11,7 @@ import mylist from "../assets/mylist.svg";
 import dashboard from "../assets/dashboard.svg";
 import logout from "../assets/logout.svg";
 import category from "../assets/addlist.svg";
+import salat from "../assets/salat.svg";
 
 const Navaside = () => {
   const [categories, setCategories] = useState([]);
@@ -123,23 +124,23 @@ const Navaside = () => {
 
               <div className={styles.sections}>
                 <Link to="/scheduled" className={styles.frame_14}>
-                  <img className={styles.image} alt="Image" src={scheduled} />
+                  <img className={styles.image} alt="scheduled tasks" src={scheduled} />
                   <div className={styles.text_wrapper_8}>Scheduled</div>
                 </Link>
 
-                <Link to="/" className={styles.frame_14}>
-                  <img className={styles.image} alt="Image" src={pomodoro} />
-                  <div className={styles.text_wrapper_8}>Pomodoro</div>
+                <Link to="/myprayer" className={styles.frame_14}>
+                  <img className={styles.image} alt="prayer" src={salat} />
+                  <div className={styles.text_wrapper_8}>My Prayer</div>
                 </Link>
 
-                <Link to="/" className={styles.frame_14}>
-                  <img className={styles.image} alt="Image" src={settings} />
+                <Link to="/settings" className={styles.frame_14}>
+                  <img className={styles.image} alt="settings" src={settings} />
                   <div className={styles.text_wrapper_8}>Settings</div>
                 </Link>
               </div>
               <div className={styles.frame_15}>
                 <div className={styles.frame_16}>
-                  <img className={styles.image_5} alt="Image" src={logout} />
+                  <img className={styles.image_5} alt="logout" src={logout} />
                   <button
                     className={styles.logout}
                     onClick={() => {

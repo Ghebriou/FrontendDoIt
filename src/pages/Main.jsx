@@ -2,8 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useCookies } from "react-cookie";
 import "../App.css";
-import { Link, useNavigate } from 'react-router-dom';
-
+import { Link, useNavigate } from "react-router-dom";
 
 export default function App() {
   const [tasks, setTasks] = useState([]);
@@ -16,21 +15,23 @@ export default function App() {
   const [taskDescription, setTaskDescription] = useState("");
   const [taskDone, setTaskDone] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState("");
-  const [cookies, setCookies,removeCookie] = useCookies();
-  
-   
+  const [cookies, setCookies, removeCookie] = useCookies();
+
   const totalTasks = tasks.length;
-  const doneTasks = tasks.filter(task => task.done).length;
-  const notDoneTasks = tasks.filter(task => !task.done).length;
+  const doneTasks = tasks.filter((task) => task.done).length;
+  const notDoneTasks = tasks.filter((task) => !task.done).length;
 
-
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const handleAddCategory = async () => {
     try {
-      const response = await axios.post("http://localhost:3000/categories", {
-        name: categoryName,
-    }, { headers: { token: cookies.token } } );
-      
+      const response = await axios.post(
+        "http://localhost:3000/categories",
+        {
+          name: categoryName,
+        },
+        { headers: { token: cookies.token } }
+      );
+
       setCategoryName("");
       console.log(response.data);
     } catch (error) {
@@ -38,19 +39,19 @@ export default function App() {
     }
   };
 
-  useEffect(() => { 
-     const getCategories = async () => {
-    try {
-      const res = await axios.get("http://localhost:3000/categories", { headers: { token: cookies.token } });
-      setCategories(res.data);
-    } catch (err) {
-      console.log(err);
-    }
-  };
+  useEffect(() => {
+    const getCategories = async () => {
+      try {
+        const res = await axios.get("http://localhost:3000/categories", {
+          headers: { token: cookies.token },
+        });
+        setCategories(res.data);
+      } catch (err) {
+        console.log(err);
+      }
+    };
     getCategories();
   }, []);
-
-
 
   const handleOpenModal = () => {
     setShowModal(true);
@@ -71,7 +72,9 @@ export default function App() {
         done: taskDone,
       };
 
-      const response = await axios.post("http://localhost:3000/tasks", task,{ headers: { token: cookies.token } });
+      const response = await axios.post("http://localhost:3000/tasks", task, {
+        headers: { token: cookies.token },
+      });
 
       console.log(response.data);
 
@@ -93,7 +96,9 @@ export default function App() {
 
   const getTasks = async () => {
     try {
-      const res = await axios.get("http://localhost:3000/tasks",{ headers: { token: cookies.token } });
+      const res = await axios.get("http://localhost:3000/tasks", {
+        headers: { token: cookies.token },
+      });
       setTasks(res.data);
     } catch (err) {
       console.log(err);
@@ -102,7 +107,9 @@ export default function App() {
 
   const handleDeleteTask = async (id) => {
     try {
-      await axios.delete(`http://localhost:3000/tasks/${id}`,{ headers: { token: cookies.token } });
+      await axios.delete(`http://localhost:3000/tasks/${id}`, {
+        headers: { token: cookies.token },
+      });
       setTasks(tasks.filter((task) => task._id !== id));
     } catch (err) {
       console.log(err);
@@ -115,42 +122,44 @@ export default function App() {
       const res = await axios.put(
         `http://localhost:3000/tasks/${id}`,
         updatedTask,
-        {headers:{token:cookies.token}}
+        { headers: { token: cookies.token } }
       );
       setTasks(tasks.map((task) => (task._id === id ? res.data : task)));
     } catch (err) {
       console.log(err);
     }
   };
-   
+
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-     const getUser = async () => {
-       try {
-         const response = await axios.get('http://localhost:3000/getUser', {headers:{token:cookies.token}});
-         setUser(response.data.user);
-       } catch (err) {
-         console.error(err);
-       }
-     };
- 
-     getUser();
+    const getUser = async () => {
+      try {
+        const response = await axios.get("http://localhost:3000/getUser", {
+          headers: { token: cookies.token },
+        });
+        setUser(response.data.user);
+      } catch (err) {
+        console.error(err);
+      }
+    };
+
+    getUser();
   }, []);
 
   return (
     <div>
       <div>
-      {user ? (
-        <div>
-          <h1>Welcome, {user.name}</h1>
-          <p>Email: {user.email}</p>
-          <Link to="/updateProfile">Update Profile</Link>
-        </div>
-      ) : (
-        <p>Loading...</p>
-      )}
-    </div>
+        {user ? (
+          <div>
+            <h1>Welcome, {user.name}</h1>
+            <p>Email: {user.email}</p>
+            <Link to="/updateProfile">Update Profile</Link>
+          </div>
+        ) : (
+          <p>Loading...</p>
+        )}
+      </div>
       <div className="App">
         <h1>Do-It!</h1>
 
@@ -163,11 +172,11 @@ export default function App() {
           />
           <button onClick={handleAddCategory}>Add Category</button>
           <ul>
-          {categories.map((category) => (
-          <li key={category._id}>
-            <p>Name: {category.name}</p>
-          </li>
-        ))}
+            {categories.map((category) => (
+              <li key={category._id}>
+                <p>Name: {category.name}</p>
+              </li>
+            ))}
           </ul>
         </div>
 
@@ -207,11 +216,10 @@ export default function App() {
                   <option value="">Select Category</option>
 
                   {categories.map((category) => (
-                    <option key={category._id} value={category._id} >
+                    <option key={category._id} value={category._id}>
                       {category.name}
                     </option>
                   ))}
-
                 </select>
 
                 <button onClick={handleAddTask}>Add Task</button>
@@ -220,7 +228,7 @@ export default function App() {
             </div>
           )}
         </div>
-        
+
         <h1>Tasks</h1>
         <div>
           {tasks.map((task) => (
@@ -229,7 +237,7 @@ export default function App() {
               <p>{task.description}</p>
               <p>Date: {task.date}</p>
               <p>Time: {task.time}</p>
-              <p>Category: {task.categoryName }</p>
+              <p>Category: {task.categoryName}</p>
               <p>Done: {task.done.toString()}</p>
               <button onClick={() => handleMarkDone(task._id, task.done)}>
                 Mark as {task.done ? "not done" : "done"}
@@ -237,11 +245,16 @@ export default function App() {
               <button onClick={() => handleDeleteTask(task._id)}>Delete</button>
             </li>
           ))}
-          <button onClick={()=>{
-            removeCookie('token');
-            navigate('/');
-            alert("Logged Out");
-          }}> Logout </button>
+          <button
+            onClick={() => {
+              removeCookie("token");
+              navigate("/");
+              alert("Logged Out");
+            }}
+          >
+            {" "}
+            Logout{" "}
+          </button>
         </div>
         <h3>Total Tasks: {totalTasks}</h3>
         <h3>Done Tasks: {doneTasks}</h3>

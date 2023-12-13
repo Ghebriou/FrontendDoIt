@@ -106,8 +106,6 @@ export default function Navaside2() {
       <div className={styles.navside}>
         <div className={styles.user_picture}>
           <img src={profile} alt="profile" />
-          {/* <h2>user</h2>
-          <h3>user@gmail.com</h3> */}
         </div>
 
         <div className={styles.calendar}>
@@ -137,7 +135,7 @@ export default function Navaside2() {
                 <div className={styles.AddContainer}>
                   <div className={styles.Inputs}>
                     <input
-                      className={styles.form__field}
+                      className={`${styles.form__field} ${styles.title}`}
                       type="text"
                       placeholder="Title"
                       value={taskName}
@@ -145,8 +143,7 @@ export default function Navaside2() {
                       id="name"
                       required
                     />
-                    <label htmlFor="name" className={styles.form__label}>
-                      {" "}
+                    <label htmlFor="name" className={styles.form__label}> 
                       Title
                     </label>
                   </div>

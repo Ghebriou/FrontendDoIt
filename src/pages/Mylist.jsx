@@ -24,12 +24,12 @@ export default function Mylist() {
     let minutes = date.getMinutes();
     const ampm = hours >= 12 ? "pm" : "am";
     hours = hours % 12;
-    hours = hours ? hours : 12;  
+    hours = hours ? hours : 12;
     minutes = minutes < 10 ? "0" + minutes : minutes;
     const strTime = hours + ":" + minutes + " " + ampm;
     return strTime;
   };
-   
+
   const greet = () => {
     const hour = date.getHours();
     if (hour < 12) return "Good Morning";
@@ -49,7 +49,6 @@ export default function Mylist() {
   const [taskDescription, setTaskDescription] = useState("");
   const [cookies, setCookies] = useCookies();
   const [showModal, setShowModal] = useState(false);
-  
 
   const notify = () => {
     toast.success("New task added!", {
@@ -199,112 +198,39 @@ export default function Mylist() {
   });
 
   return (
-    <div className={styles.content}>
-      <div className={styles.my_list}>
-        <Navaside />
-        <Navaside2 />
-        <div className={styles.frame_wrapper}>
-          <div className={styles.frame}>
-            <div className={styles.div}>
-              <div className={styles.text_wrapper}>My list !</div>
-              <div className={styles.frame_2}>
-                <div className={styles.text_wrapper_2}>{formatAMPM(date)}</div>
-                <div className={styles.group}>
-                  <div className={styles.good_morning_wrapper}>
-                    <p className={styles.good_morning}>
-                      <div className={styles.span}>{greet()},</div>
-                      {user ? (
-                        <div className={styles.text_wrapper_4}>{user.name}</div>
-                      ) : (
-                        <div className={styles.text_wrapper_4}>User</div>
-                      )}
-                    </p>
-                  </div>
+    <div className={styles.my_list}>
+      <div className={styles.container}>
+        <div className={styles.content}>
+          <div className={styles.section}>
+            <h1 className={styles.text_wrapper}>My list !</h1>
+
+            <div className={styles.section2}>
+              <div className={styles.text_wrapper_2}>{formatAMPM(date)}</div>
+
+              <div className={styles.group}>
+                <div className={styles.greating}>
+                  <div className={styles.greet}>{greet()},</div>
+                  {user ? (
+                    <div className={styles.text_wrapper_4}>{user.name} !</div>
+                  ) : (
+                    <div className={styles.text_wrapper_4}>User</div>
+                  )}
                 </div>
               </div>
             </div>
-            <div className="frame-3">
-              <button
-                className={styles.overlap_group}
-                onClick={handleOpenModal}
-              >
-                <img className={styles.image} alt="Image" src={addbtn} />
-                <div className={styles.frame_4}>
-                  <img className={styles.img} alt="Group" src={colors} />
-                  <p className={styles.p}>What is your next task ?</p>
-                </div>
-              </button>
+          </div>
 
-              {showModal && (
-                <div className={styles.modal_overlay}>
-                  <form className={styles.modal_window}>
-                    <h2 className={styles.h2addtask}>Add Task!</h2>
-                    <div className={styles.AddContainer}>
-                      <div className={styles.Inputs}>
-                        <input
-                          className={styles.form__field}
-                          type="text"
-                          placeholder="Title"
-                          value={taskName}
-                          onChange={(e) => setTaskName(e.target.value)}
-                          id="name"
-                          required
-                        />
-                        <label htmlFor="name" className={styles.form__label}>
-                          {" "}
-                          Title
-                        </label>
-                      </div>
-                      <div className={styles.Inputs}>
-                        <input
-                          className={styles.form__field}
-                          type="date"
-                          value={taskDate}
-                          onChange={(e) => setTaskDate(e.target.value)}
-                          required
-                        />
-                      </div>
-                      <div className={styles.Inputs}>
-                        <input
-                          className={styles.form__field}
-                          type="time"
-                          value={taskTime}
-                          onChange={(e) => setTaskTime(e.target.value)}
-                        />
-                      </div>
-                      <div className={styles.Inputs}>
-                        <select
-                          className={styles.form__field}
-                          value={selectedCategory}
-                          onChange={(e) => setSelectedCategory(e.target.value)}
-                          required
-                        >
-                          <option value="">Select Category</option>
-                          {categories.map((category) => (
-                            <option key={category._id} value={category._id}>
-                              {category.name}
-                            </option>
-                          ))}
-                        </select>
-                      </div>
-                    </div>
-                    <div className={styles.Addbtn}>
-                      <button className={styles.btn2} onClick={handleAddTask}>
-                        Add Task
-                      </button>
-                      <ToastContainer />
-                      <button
-                        className={styles.btn1}
-                        onClick={handleCloseModal}
-                      >
-                        Cancel
-                      </button>
-                    </div>
-                  </form>
-                </div>
-              )}
+          <div className="TaskFrame">
+            <button className={styles.overlap_group} onClick={handleOpenModal}>
+              <img className={styles.image} alt="Image" src={addbtn} />
+              <div className={styles.frame_4}>
+                <img className={styles.img} alt="Group" src={colors} />
+                <p className={styles.p}>What is your next task ?</p>
+              </div>
+            </button>
 
-              <h1>Today’s list</h1>
+            <div className={styles.tasklist}>
+              <h1 className={styles.taskday}>Today’s Tasks</h1>
               <div className={styles.tasks_container}>
                 {todayTasks.map((task) => (
                   <div
@@ -317,10 +243,13 @@ export default function Mylist() {
                       className={`${styles.task_info} ${
                         task.done ? styles.done : ""
                       }`}
-                    >
+                    > <div className={styles.nameT}> 
+                      <div className={styles.ellipse} />
                       <h3>{task.name}</h3>
-                      <p>{task.categoryName}</p>
-                      <p>{task.time}</p>
+                    </div>
+                      
+                      <p className={styles.categoryN}>{task.categoryName}</p>
+                      <p className={styles.timedate}>{task.time}</p>
                     </div>
                     <div className={styles.task_actions}>
                       <button
@@ -356,264 +285,183 @@ export default function Mylist() {
                 ))}
               </div>
 
-              {/* <div className={styles.frame_5}>
-                  <div className={styles.frame_6}>
-                    <div className={styles.frame_7}>
-                      <div className={styles.frame_}>
-                        {todayTasks.map((task) => (
-                          <div key={task._id}>
-                            <div className={styles.frame_9}>
-                              <div className={styles.frame_10}>
-                                <div className={styles.ellipse} />
-                                <div className={styles.text_wrapper_6}>
-                                  {task.name}
-                                </div>
-                              </div>
-                              <div className={styles.text_wrapper_6}>
-                                {task.time}
-                              </div>
-                            </div>
-                            <div className={styles.frame_11}>
-                              <button
-                                className={styles.btnT}
-                                onClick={() =>
-                                  handleMarkDone(task._id, task.done)
-                                }
-                              >
-                                {task.done ? (
-                                  <img
-                                    src={tasknotdone}
-                                    alt="task not done"
-                                    className={styles.ellipse_2}
-                                  />
-                                ) : (
-                                  <img
-                                    src={taskdone}
-                                    alt="task done"
-                                    className={styles.ellipse_2}
-                                  />
-                                )}
-                              </button>
-                              <button
-                                className={styles.btnT}
-                                onClick={() => handleDeleteTask(task._id)}
-                              >
-                                <img
-                                  className={styles.image_2}
-                                  alt="delete"
-                                  src={taskdelete}
-                                />
-                              </button>
-                            </div>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
+              <h1 className={styles.taskday}> Tomorrow's Tasks</h1>
+              <div className={styles.tasks_container}>
+                {tomorrowTasks.map((task) => (
+                 <div
+                 key={task._id}
+                 className={`${styles.task} ${
+                   task.done ? styles.done_task : ""
+                 }`}
+               >
+                 <div
+                   className={`${styles.task_info} ${
+                     task.done ? styles.done : ""
+                   }`}
+                 > <div className={styles.nameT}> 
+                   <div className={styles.ellipse} />
+                   <h3>{task.name}</h3>
+                 </div>
+                   
+                   <p className={styles.categoryN}>{task.categoryName}</p>
+                   <p className={styles.timedate}>{task.date}</p>
+                 </div>
+                 <div className={styles.task_actions}>
+                   <button
+                     className={styles.btnT}
+                     onClick={() => handleMarkDone(task._id, task.done)}
+                   >
+                     {task.done ? (
+                       <img
+                         src={taskdone}
+                         alt="task done"
+                         className={styles.ellipse_2}
+                       />
+                     ) : (
+                       <img
+                         src={tasknotdone}
+                         alt="task not done"
+                         className={styles.ellipse_2}
+                       />
+                     )}
+                   </button>
+                   <button
+                     className={styles.btnT}
+                     onClick={() => handleDeleteTask(task._id)}
+                   >
+                     <img
+                       className={styles.image_2}
+                       alt="delete"
+                       src={taskdelete}
+                     />
+                   </button>
+                 </div>
+               </div>
+                ))}
+              </div>
+
+              <h1 className={styles.taskday}>Upcoming Tasks</h1>
+              <div className={styles.tasks_container}>
+                {upcomingTasks.map((task) => (
+                  <div
+                  key={task._id}
+                  className={`${styles.task} ${
+                    task.done ? styles.done_task : ""
+                  }`}
+                >
+                  <div
+                    className={`${styles.task_info} ${
+                      task.done ? styles.done : ""
+                    }`}
+                  > <div className={styles.nameT}> 
+                    <div className={styles.ellipse} />
+                    <h3>{task.name}</h3>
                   </div>
-                </div> */}
-
-              <div>
-                <h1>Tomorrow's Tasks</h1>
-                <div className={styles.tasks_container}>
-                  {tomorrowTasks.map((task) => (
-                    <div
-                      key={task._id}
-                      className={`${styles.task} ${
-                        task.done ? styles.done_task : ""
-                      }`}
+                    
+                    <p className={styles.categoryN}>{task.categoryName}</p>
+                    <p className={styles.timedate}>{task.date}</p>
+                  </div>
+                  <div className={styles.task_actions}>
+                    <button
+                      className={styles.btnT}
+                      onClick={() => handleMarkDone(task._id, task.done)}
                     >
-                      <div
-                        className={`${styles.task_info} ${
-                          task.done ? styles.done : ""
-                        }`}
-                      >
-                        <h3>{task.name}</h3>
-                        <p>{task.categoryName}</p>
-                        <p>{task.time}</p>
-                      </div>
-                      <div className={styles.task_actions}>
-                        <button
-                          className={styles.btnT}
-                          onClick={() => handleMarkDone(task._id, task.done)}
-                        >
-                          {task.done ? (
-                            <img
-                              src={taskdone}
-                              alt="task done"
-                              className={styles.ellipse_2}
-                            />
-                          ) : (
-                            <img
-                              src={tasknotdone}
-                              alt="task not done"
-                              className={styles.ellipse_2}
-                            />
-                          )}
-                        </button>
-                        <button
-                          className={styles.btnT}
-                          onClick={() => handleDeleteTask(task._id)}
-                        >
-                          <img
-                            className={styles.image_2}
-                            alt="delete"
-                            src={taskdelete}
-                          />
-                        </button>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              <div>
-                <h1>Upcoming Tasks</h1>
-                <div className={styles.tasks_container}>
-                  {upcomingTasks.map((task) => (
-                    <div
-                      key={task._id}
-                      className={`${styles.task} ${
-                        task.done ? styles.done_task : ""
-                      }`}
+                      {task.done ? (
+                        <img
+                          src={taskdone}
+                          alt="task done"
+                          className={styles.ellipse_2}
+                        />
+                      ) : (
+                        <img
+                          src={tasknotdone}
+                          alt="task not done"
+                          className={styles.ellipse_2}
+                        />
+                      )}
+                    </button>
+                    <button
+                      className={styles.btnT}
+                      onClick={() => handleDeleteTask(task._id)}
                     >
-                      <div
-                        className={`${styles.task_info} ${
-                          task.done ? styles.done : ""
-                        }`}
-                      >
-                        <h3>{task.name}</h3>
-                        <p>{task.categoryName}</p>
-                        <p>{task.date}</p>
-                      </div>
-                      <div className={styles.task_actions}>
-                        <button
-                          className={styles.btnT}
-                          onClick={() => handleMarkDone(task._id, task.done)}
-                        >
-                          {task.done ? (
-                            <img
-                              src={taskdone}
-                              alt="task done"
-                              className={styles.ellipse_2}
-                            />
-                          ) : (
-                            <img
-                              src={tasknotdone}
-                              alt="task not done"
-                              className={styles.ellipse_2}
-                            />
-                          )}
-                        </button>
-                        <button
-                          className={styles.btnT}
-                          onClick={() => handleDeleteTask(task._id)}
-                        >
-                          <img
-                            className={styles.image_2}
-                            alt="delete"
-                            src={taskdelete}
-                          />
-                        </button>
-                      </div>
-                    </div>
-                  ))}
+                      <img
+                        className={styles.image_2}
+                        alt="delete"
+                        src={taskdelete}
+                      />
+                    </button>
+                  </div>
                 </div>
-              </div>
+                 ))}
+               </div>
             </div>
-            {/* new */}
-            {/* <div className="frame-3">
-              <div className="text-wrapper-5">Today’s list</div>
-              <div className="frame-5">
-                <div className="frame-6">
-                  <div className="frame-7">
-                    <img className="group-2" alt="Group" src="group-9.png" />
-                    <div className="frame-8">
-                      <div className="frame-9">
-                        <div className="frame-10">
-                          <div className="ellipse" />
-                          <div className="text-wrapper-6">Write my cv</div>
-                        </div>
-                        <div className="text-wrapper-6">12:00 PM</div>
-                      </div>
+            <Navaside />
+            <Navaside2 />
 
-                      <div className="frame-11">
-                        <div className="ellipse-2" />
-                        <img
-                          className="image-2"
-                          alt="Image"
-                          src="image-13.png"
-                        />
-                      </div>
-                    </div>
+            {showModal && (
+            <div className={styles.modal_overlay}>
+              <form className={styles.modal_window}>
+                <h2 className={styles.h2addtask}>Add Task!</h2>
+                <div className={styles.AddContainer}>
+                  <div className={styles.Inputs}>
+                    <input
+                      className={`${styles.form__field} ${styles.title}`}
+                      type="text"
+                      placeholder="Title"
+                      value={taskName}
+                      onChange={(e) => setTaskName(e.target.value)}
+                      id="name"
+                      required
+                    />
+                    <label htmlFor="name" className={styles.form__label}> 
+                      Title
+                    </label>
                   </div>
-
-                  <div className="frame-7">
-                    <img className="group-2" alt="Group" src="image.png" />
-                    <div className="frame-12">
-                      <div className="frame-13">
-                        <div className="frame-10">
-                          <div className="ellipse-3" />
-                          <div className="text-wrapper-6">
-                            ENVS Online Course
-                          </div>
-                        </div>
-                        <div className="text-wrapper-6">04:00 PM</div>
-                      </div>
-                      <div className="frame-11">
-                        <div className="ellipse-2" />
-                        <img
-                          className="image-2"
-                          alt="Image"
-                          src="image-13-2.png"
-                        />
-                      </div>
-                    </div>
+                  <div className={styles.Inputs}>
+                    <input
+                      className={styles.form__field}
+                      type="date"
+                      value={taskDate}
+                      onChange={(e) => setTaskDate(e.target.value)}
+                      required
+                    />
                   </div>
-                  <div className="frame-7">
-                    <img className="group-2" alt="Group" src="group-9-2.png" />
-                    <div className="frame-8">
-                      <div className="frame-14">
-                        <div className="frame-10">
-                          <div className="ellipse-4" />
-                          <div className="text-wrapper-6">Clean my room</div>
-                        </div>
-                        <div className="text-wrapper-7">10:00 PM</div>
-                      </div>
-                      <div className="frame-11">
-                        <div className="ellipse-2" />
-                        <img
-                          className="image-2"
-                          alt="Image"
-                          src="image-13-3.png"
-                        />
-                      </div>
-                    </div>
+                  <div className={styles.Inputs}>
+                    <input
+                      className={styles.form__field}
+                      type="time"
+                      value={taskTime}
+                      onChange={(e) => setTaskTime(e.target.value)}
+                    />
                   </div>
-                  <div className="frame-7">
-                    <img className="group-2" alt="Group" src="group-9-3.png" />
-                    <div className="frame-15">
-                      <div className="frame-16">
-                        <div className="frame-10">
-                          <div className="ellipse-3" />
-                          <div className="write-my-cv">GL Online Course</div>
-                        </div>
-                        <div className="text-wrapper-8">09:00 PM</div>
-                      </div>
-                      <div className="frame-11">
-                        <div className="ellipse-2" />
-                        <img
-                          className="image-2"
-                          alt="Image"
-                          src="image-13-4.png"
-                        />
-                      </div>
-                    </div>
-                    <img className="line" alt="Line" src="line-11.svg" />
+                  <div className={styles.Inputs}>
+                    <select
+                      className={styles.form__field}
+                      value={selectedCategory}
+                      onChange={(e) => setSelectedCategory(e.target.value)}
+                      required
+                    >
+                      <option value="">Select Category</option>
+                      {categories.map((category) => (
+                        <option key={category._id} value={category._id}>
+                          {category.name}
+                        </option>
+                      ))}
+                    </select>
                   </div>
                 </div>
-                <img className="frame-17" alt="Frame" src="frame-88.svg" />
-              </div>
-            </div> */}
+                <div className={styles.Addbtn}>
+                  <button className={styles.btn2} onClick={handleAddTask}>
+                    Add Task
+                  </button>
+                  <ToastContainer />
+                  <button className={styles.btn1} onClick={handleCloseModal}>
+                    Cancel
+                  </button>
+                </div>
+              </form>
+            </div>
+          )}
           </div>
         </div>
       </div>

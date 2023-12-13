@@ -6,7 +6,10 @@ import NoPage from "./pages/NoPage.jsx";
 import Main from "./pages/Main.jsx";
 import Mylist from './pages/Mylist.jsx';
 import { CookiesProvider } from "react-cookie";
-import Scheduled from './pages/Scheduled.jsx';
+import Prayer from './pages/prayer.jsx';
+import Settings from './pages/settings.jsx';
+import Scheduled from './pages/scheduled.jsx';
+
 
 export default function App() {
   return (
@@ -20,7 +23,9 @@ export default function App() {
         <Route path="/signup" element={<SignUp/>} />
         <Route path="/home" element={<Main/>} />
         <Route path="/mylist" element={<Mylist/>} />
-        <Route path="scheduled" element={<Scheduled/>} />
+        <Route path="/myprayer" element={<Prayer/>} />
+        <Route path="/settings" element={<Settings/>} />
+        <Route path="/scheduled" element={<Scheduled/>} /> 
         <Route path='*' element={<NoPage/>} />
       </Routes>
       
