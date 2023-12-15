@@ -17,6 +17,38 @@ export default function App() {
   const [selectedCategory, setSelectedCategory] = useState("");
   const [cookies, setCookies, removeCookie] = useCookies();
 
+  const [searchedDay, setSearchedDay] = useState("");
+  const [filteredTasks, setFilteredTasks] = useState([]);
+
+  const getTasksForToday = () => {
+    const today = new Date().toISOString().split('T')[0];
+    return tasks.filter(task => task.date === today);
+  };
+
+  const getTasksForYesterday = () => {
+    const yesterday = new Date(new Date().getTime() - 24 * 60 * 60 * 1000).toISOString().split('T')[0];
+    return tasks.filter(task => task.date === yesterday);
+  };
+
+  const getPreviousTasks = () => {
+    const yesterday = new Date(new Date().getTime() - 24 * 60 * 60 * 1000).toISOString().split('T')[0];
+    return tasks.filter(task => task.date < yesterday);
+  };
+
+  const handleSearchTasks = () => {
+    if (searchedDay !== "") {
+      const tasksForSelectedDay = tasks.filter(task => task.date === searchedDay);
+      setFilteredTasks(tasksForSelectedDay);
+    }
+  };
+
+  useEffect(() => {
+    // Set default filtered tasks for today, yesterday, and previous tasks
+    setFilteredTasks(getTasksForToday().concat(getTasksForYesterday(), getPreviousTasks()));
+  }, [tasks, searchedDay])
+   
+
+
   const totalTasks = tasks.length;
   const doneTasks = tasks.filter((task) => task.done).length;
   const notDoneTasks = tasks.filter((task) => !task.done).length;
@@ -149,7 +181,7 @@ export default function App() {
 
   return (
     <div>
-      <div>
+      {/* <div>
         {user ? (
           <div>
             <h1>Welcome, {user.name}</h1>
@@ -178,9 +210,9 @@ export default function App() {
               </li>
             ))}
           </ul>
-        </div>
+        </div> */}
 
-        <div>
+        {/* <div>
           <button onClick={handleOpenModal}>Add Task</button>
 
           {showModal && (
@@ -259,7 +291,90 @@ export default function App() {
         <h3>Total Tasks: {totalTasks}</h3>
         <h3>Done Tasks: {doneTasks}</h3>
         <h3>Not Done Tasks: {notDoneTasks}</h3>
+      </div> */}
+
+
+
+<div>
+        <input
+          type="date"
+          value={searchedDay}
+          onChange={(e) => setSearchedDay(e.target.value)}
+        />
+        <button onClick={handleSearchTasks}>Search Tasks</button>
+        <div>
+          {searchedDay === "" && (
+            <>
+              <h2>Tasks for Today</h2>
+              {getTasksForToday().map((task) => (
+                 <li key={task._id}>
+                 <h3>{task.name}</h3>
+                 <p>{task.description}</p>
+                 <p>Date: {task.date}</p>
+                 <p>Time: {task.time}</p>
+                 <p>Category: {task.categoryName}</p>
+                 <p>Done: {task.done.toString()}</p>
+                 <button onClick={() => handleMarkDone(task._id, task.done)}>
+                   Mark as {task.done ? "not done" : "done"}
+                 </button>
+                 <button onClick={() => handleDeleteTask(task._id)}>Delete</button>
+               </li>
+              ))}
+              <h2>Tasks for Yesterday</h2>
+              {getTasksForYesterday().map((task) => (
+                 <li key={task._id}>
+                 <h3>{task.name}</h3>
+                 <p>{task.description}</p>
+                 <p>Date: {task.date}</p>
+                 <p>Time: {task.time}</p>
+                 <p>Category: {task.categoryName}</p>
+                 <p>Done: {task.done.toString()}</p>
+                 <button onClick={() => handleMarkDone(task._id, task.done)}>
+                   Mark as {task.done ? "not done" : "done"}
+                 </button>
+                 <button onClick={() => handleDeleteTask(task._id)}>Delete</button>
+               </li>
+              ))}
+              <h2>Previous Tasks</h2>
+              {getPreviousTasks().map((task) => (
+                 <li key={task._id}>
+                 <h3>{task.name}</h3>
+                 <p>{task.description}</p>
+                 <p>Date: {task.date}</p>
+                 <p>Time: {task.time}</p>
+                 <p>Category: {task.categoryName}</p>
+                 <p>Done: {task.done.toString()}</p>
+                 <button onClick={() => handleMarkDone(task._id, task.done)}>
+                   Mark as {task.done ? "not done" : "done"}
+                 </button>
+                 <button onClick={() => handleDeleteTask(task._id)}>Delete</button>
+               </li>
+              ))}
+            </>
+          )}
+          {searchedDay !== "" && (
+            <>
+              <h2>Tasks for {searchedDay}</h2>
+              {filteredTasks.map((task) => (
+                <li key={task._id}>
+              <h3>{task.name}</h3>
+              <p>{task.description}</p>
+              <p>Date: {task.date}</p>
+              <p>Time: {task.time}</p>
+              <p>Category: {task.categoryName}</p>
+              <p>Done: {task.done.toString()}</p>
+              <button onClick={() => handleMarkDone(task._id, task.done)}>
+                Mark as {task.done ? "not done" : "done"}
+              </button>
+              <button onClick={() => handleDeleteTask(task._id)}>Delete</button>
+            </li>
+              ))}
+            </>
+          )}
+        </div>
+        
       </div>
+      <br /><br /><br />
     </div>
   );
 }

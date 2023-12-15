@@ -202,7 +202,7 @@ export default function Mylist() {
       <div className={styles.container}>
         <div className={styles.content}>
           <div className={styles.section}>
-            <h1 className={styles.text_wrapper}>My list !</h1>
+            <h1 className={styles.text_wrapper}>My List!</h1>
 
             <div className={styles.section2}>
               <div className={styles.text_wrapper_2}>{formatAMPM(date)}</div>

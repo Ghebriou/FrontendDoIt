@@ -15,7 +15,6 @@ body {
   margin: 0 auto;
   border: none;
 }
-
 .content {
   display: flex;
   justify-content: center;
@@ -38,9 +37,10 @@ body {
 .text_wrapper {
   color: #ffffff;
   font-family: "Righteous-Regular", Helvetica;
-  font-size: 73px;
-  font-weight: 600;
+  font-size: 58px;
+  font-weight: 700;
   position: relative;
+  right: 45px;
 }
 
 .section2 {
@@ -50,6 +50,7 @@ body {
   flex-direction: column;
   gap: 38px;
   position: relative;
+  left: 46px;
 }
 
 .text_wrapper_2 {

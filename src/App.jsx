@@ -9,6 +9,7 @@ import { CookiesProvider } from "react-cookie";
 import Prayer from './pages/prayer.jsx';
 import Settings from './pages/settings.jsx';
 import Scheduled from './pages/scheduled.jsx';
+import Dashboard from './pages/dashboard.jsx';
 
 
 export default function App() {
@@ -26,6 +27,7 @@ export default function App() {
         <Route path="/myprayer" element={<Prayer/>} />
         <Route path="/settings" element={<Settings/>} />
         <Route path="/scheduled" element={<Scheduled/>} /> 
+        <Route path="/dashboard" element={<Dashboard/>} />
         <Route path='*' element={<NoPage/>} />
       </Routes>
       

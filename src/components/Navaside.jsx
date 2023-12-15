@@ -79,7 +79,7 @@ const Navaside = () => {
             <div className={styles.text_logo}>DO-IT</div>
           </Link>
           <div className={styles.frame_6}>
-            <Link to="/" className={styles.frame_8}>
+            <Link to="/dashboard" className={styles.frame_8}>
               <img className={styles.dashboard} alt="Image" src={dashboard} />
               <div className={styles.text_wrapper_8}>Dashboard</div>
             </Link>
