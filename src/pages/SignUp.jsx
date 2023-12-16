@@ -49,7 +49,7 @@ export default function SignUp() {
 
     if (res.data.success) {
       setCookie("token", res.data.token);
-      navigate("/home");
+      navigate("/mylist");
       alert("Logged In");
     } else {
       alert("please enter valid credentials");

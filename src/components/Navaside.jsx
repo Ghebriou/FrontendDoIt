@@ -12,6 +12,7 @@ import dashboard from "../assets/dashboard.svg";
 import logout from "../assets/logout.svg";
 import category from "../assets/addlist.svg";
 import salat from "../assets/salat.svg";
+import deleteCateg from "../assets/delete.svg";
 
 const Navaside = () => {
   const [categories, setCategories] = useState([]);
@@ -70,6 +71,17 @@ const Navaside = () => {
     }
   };
 
+  const handleDeleteCategory = async (id) => {
+    try {
+      await axios.delete(`http://localhost:3000/categories/${id}`, {
+        headers: { token: cookies.token },
+      });
+      setCategories(categories.filter((category) => category._id !== id));
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   return (
     <div className={styles.frame}>
       <div className={styles.frame_2}>
@@ -116,6 +128,17 @@ const Navaside = () => {
                       <div className={styles.categorycolor} />
                       <div className={styles.text_wrapper_9}>
                         {category.name}
+                      </div>
+                      {/* hna modification */}
+                      <div
+                        className={styles.btnT}
+                        onClick={() => handleDeleteCategory(category._id)}
+                      >
+                        <img
+                          className={styles.delete}
+                          alt="delete"
+                          src={deleteCateg}
+                        />
                       </div>
                     </div>
                   ))}
