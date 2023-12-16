@@ -28,7 +28,7 @@ body {
   align-items: center;
   display: flex;
   flex: 0 0 auto;
-  gap: 460px;
+  gap: 553px;
   position: relative;
   align-items: baseline;
   margin-bottom: 20px;
@@ -57,7 +57,7 @@ body {
   color: #818895;
   font-family: "Righteous-Regular", Helvetica;
   font-size: 48px;
-  font-weight: 500;
+  font-weight: 550;
   position: relative;
 }
 
@@ -112,12 +112,13 @@ body {
 }
 
 .overlap_group { 
-  height: 72px;
+  height: 78px;
   left: 1px;
   position: relative;
-  width: 800px;
+  width: 835px;
   border-radius: 30px;
-  padding: 16px;  
+  padding: 16px; 
+  bottom: 18px; 
 }
 
 .image {
@@ -131,8 +132,8 @@ body {
 .frame_4 {
   align-items: center;
   display:  flex;
-  gap: 16px;
-  left: 30px;
+  gap: 38px;
+  left: 45px;
   position: absolute;
   top: 22px;
 }
@@ -156,7 +157,7 @@ body {
 
 /* styling 2 pour les tasks */
 .tasklist{
-  margin-top: 40px;
+  margin-top: 20px;
   display: flexbox;
   flex-direction: column;
   justify-content: center;
@@ -166,6 +167,8 @@ body {
   overflow-y: auto; /* bch tdir scroll 3la Y */
   border: none;
   max-width:800px ;
+  position: relative;
+  left: 20px;
 }
 .taskday{
  color: #d9d9d9;
@@ -177,7 +180,7 @@ body {
  margin-bottom: 30px;
 }
 .tasklist::-webkit-scrollbar {
-  width:3px;
+  width:0px;
   background-color: #d9d9d9;
 }
 /* Hide the scrollbar buttons (arrows) */

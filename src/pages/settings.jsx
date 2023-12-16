@@ -29,23 +29,17 @@ export default function settings() {
     setFile(e.target.files[0]);
   };
 
-  const uploadFile = async () => {
-    const formData = new FormData();
-    formData.append("profilePic", file);
-
+  const uploadProfilePicture = async () => {
     try {
-      const response = await axios.post(
-        "http://localhost:3000/uploadProfilePic",
-        formData,
-        {
-            headers: {
-                'Content-Type': 'multipart/form-data',
-                'token': 'cookies.token' // You need to add user token or authentication token
-              },
-        }
-      );
-      console.log("Profile picture uploaded:", response.data);
-      // Additional logic after successful upload (like updating the UI, etc.)
+      const formData = new FormData();
+      formData.append("profilePic", file);
+
+      await axios.post("http://localhost:3000/uploadProfilePic", formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+          token: cookies.token,
+        },
+      });
     } catch (error) {
       console.error("Error uploading profile picture:", error);
     }
@@ -63,16 +57,15 @@ export default function settings() {
                   Welcome, <span className={styles.txt}>{user.name}</span>
                 </h1>
                 <p>Email: {user.email}</p>
-            </div>
+              </div>
             ) : (
               <p>Loading...</p>
             )}
           </div>
           <input type="file" onChange={onFileChange} />
-          <button className={styles.btnP} onClick={uploadFile}>
+          <button className={styles.btnP} onClick={uploadProfilePicture}>
             Upload Profile Picture
           </button>
-          
         </div>
       </div>
 

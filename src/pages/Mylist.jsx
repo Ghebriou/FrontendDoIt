@@ -192,9 +192,13 @@ export default function Mylist() {
   // Filter tasks for Today, Tomorrow, and Upcoming
   const todayTasks = filterTasksByDate(tasks, today);
   const tomorrowTasks = filterTasksByDate(tasks, tomorrow);
+  const afterTomorrow = new Date();
+  afterTomorrow.setDate(afterTomorrow.getDate() + 2);
+  afterTomorrow.setHours(0, 0, 0, 0);
+
   const upcomingTasks = tasks.filter((task) => {
     const taskDate = new Date(task.date);
-    return taskDate > tomorrow;
+    return taskDate >= afterTomorrow;
   });
 
   return (
@@ -243,11 +247,12 @@ export default function Mylist() {
                       className={`${styles.task_info} ${
                         task.done ? styles.done : ""
                       }`}
-                    > <div className={styles.nameT}> 
-                      <div className={styles.ellipse} />
-                      <h3>{task.name}</h3>
-                    </div>
-                      
+                    >
+                      {" "}
+                      <div className={styles.nameT}>
+                        <div className={styles.ellipse} />
+                        <h3>{task.name}</h3>
+                      </div>
                       <p className={styles.categoryN}>{task.categoryName}</p>
                       <p className={styles.timedate}>{task.time}</p>
                     </div>
@@ -288,55 +293,56 @@ export default function Mylist() {
               <h1 className={styles.taskday}> Tomorrow's Tasks</h1>
               <div className={styles.tasks_container}>
                 {tomorrowTasks.map((task) => (
-                 <div
-                 key={task._id}
-                 className={`${styles.task} ${
-                   task.done ? styles.done_task : ""
-                 }`}
-               >
-                 <div
-                   className={`${styles.task_info} ${
-                     task.done ? styles.done : ""
-                   }`}
-                 > <div className={styles.nameT}> 
-                   <div className={styles.ellipse} />
-                   <h3>{task.name}</h3>
-                 </div>
-                   
-                   <p className={styles.categoryN}>{task.categoryName}</p>
-                   <p className={styles.timedate}>{task.date}</p>
-                 </div>
-                 <div className={styles.task_actions}>
-                   <button
-                     className={styles.btnT}
-                     onClick={() => handleMarkDone(task._id, task.done)}
-                   >
-                     {task.done ? (
-                       <img
-                         src={taskdone}
-                         alt="task done"
-                         className={styles.ellipse_2}
-                       />
-                     ) : (
-                       <img
-                         src={tasknotdone}
-                         alt="task not done"
-                         className={styles.ellipse_2}
-                       />
-                     )}
-                   </button>
-                   <button
-                     className={styles.btnT}
-                     onClick={() => handleDeleteTask(task._id)}
-                   >
-                     <img
-                       className={styles.image_2}
-                       alt="delete"
-                       src={taskdelete}
-                     />
-                   </button>
-                 </div>
-               </div>
+                  <div
+                    key={task._id}
+                    className={`${styles.task} ${
+                      task.done ? styles.done_task : ""
+                    }`}
+                  >
+                    <div
+                      className={`${styles.task_info} ${
+                        task.done ? styles.done : ""
+                      }`}
+                    >
+                      {" "}
+                      <div className={styles.nameT}>
+                        <div className={styles.ellipse} />
+                        <h3>{task.name}</h3>
+                      </div>
+                      <p className={styles.categoryN}>{task.categoryName}</p>
+                      <p className={styles.timedate}>{task.date}</p>
+                    </div>
+                    <div className={styles.task_actions}>
+                      <button
+                        className={styles.btnT}
+                        onClick={() => handleMarkDone(task._id, task.done)}
+                      >
+                        {task.done ? (
+                          <img
+                            src={taskdone}
+                            alt="task done"
+                            className={styles.ellipse_2}
+                          />
+                        ) : (
+                          <img
+                            src={tasknotdone}
+                            alt="task not done"
+                            className={styles.ellipse_2}
+                          />
+                        )}
+                      </button>
+                      <button
+                        className={styles.btnT}
+                        onClick={() => handleDeleteTask(task._id)}
+                      >
+                        <img
+                          className={styles.image_2}
+                          alt="delete"
+                          src={taskdelete}
+                        />
+                      </button>
+                    </div>
+                  </div>
                 ))}
               </div>
 
@@ -344,124 +350,125 @@ export default function Mylist() {
               <div className={styles.tasks_container}>
                 {upcomingTasks.map((task) => (
                   <div
-                  key={task._id}
-                  className={`${styles.task} ${
-                    task.done ? styles.done_task : ""
-                  }`}
-                >
-                  <div
-                    className={`${styles.task_info} ${
-                      task.done ? styles.done : ""
+                    key={task._id}
+                    className={`${styles.task} ${
+                      task.done ? styles.done_task : ""
                     }`}
-                  > <div className={styles.nameT}> 
-                    <div className={styles.ellipse} />
-                    <h3>{task.name}</h3>
-                  </div>
-                    
-                    <p className={styles.categoryN}>{task.categoryName}</p>
-                    <p className={styles.timedate}>{task.date}</p>
-                  </div>
-                  <div className={styles.task_actions}>
-                    <button
-                      className={styles.btnT}
-                      onClick={() => handleMarkDone(task._id, task.done)}
+                  >
+                    <div
+                      className={`${styles.task_info} ${
+                        task.done ? styles.done : ""
+                      }`}
                     >
-                      {task.done ? (
+                      {" "}
+                      <div className={styles.nameT}>
+                        <div className={styles.ellipse} />
+                        <h3>{task.name}</h3>
+                      </div>
+                      <p className={styles.categoryN}>{task.categoryName}</p>
+                      <p className={styles.timedate}>{task.date}</p>
+                    </div>
+                    <div className={styles.task_actions}>
+                      <button
+                        className={styles.btnT}
+                        onClick={() => handleMarkDone(task._id, task.done)}
+                      >
+                        {task.done ? (
+                          <img
+                            src={taskdone}
+                            alt="task done"
+                            className={styles.ellipse_2}
+                          />
+                        ) : (
+                          <img
+                            src={tasknotdone}
+                            alt="task not done"
+                            className={styles.ellipse_2}
+                          />
+                        )}
+                      </button>
+                      <button
+                        className={styles.btnT}
+                        onClick={() => handleDeleteTask(task._id)}
+                      >
                         <img
-                          src={taskdone}
-                          alt="task done"
-                          className={styles.ellipse_2}
+                          className={styles.image_2}
+                          alt="delete"
+                          src={taskdelete}
                         />
-                      ) : (
-                        <img
-                          src={tasknotdone}
-                          alt="task not done"
-                          className={styles.ellipse_2}
-                        />
-                      )}
-                    </button>
-                    <button
-                      className={styles.btnT}
-                      onClick={() => handleDeleteTask(task._id)}
-                    >
-                      <img
-                        className={styles.image_2}
-                        alt="delete"
-                        src={taskdelete}
-                      />
-                    </button>
+                      </button>
+                    </div>
                   </div>
-                </div>
-                 ))}
-               </div>
+                ))}
+              </div>
             </div>
             <Navaside />
             <Navaside2 />
 
             {showModal && (
-            <div className={styles.modal_overlay}>
-              <form className={styles.modal_window}>
-                <h2 className={styles.h2addtask}>Add Task!</h2>
-                <div className={styles.AddContainer}>
-                  <div className={styles.Inputs}>
-                    <input
-                      className={`${styles.form__field} ${styles.title}`}
-                      type="text"
-                      placeholder="Title"
-                      value={taskName}
-                      onChange={(e) => setTaskName(e.target.value)}
-                      id="name"
-                      required
-                    />
-                    <label htmlFor="name" className={styles.form__label}> 
-                      Title
-                    </label>
+              <div className={styles.modal_overlay}>
+                <form className={styles.modal_window}>
+                  <h2 className={styles.h2addtask}>Add Task!</h2>
+                  <div className={styles.AddContainer}>
+                    <div className={styles.Inputs}>
+                      <input
+                        className={`${styles.form__field} ${styles.title}`}
+                        type="text"
+                        placeholder="Title"
+                        value={taskName}
+                        onChange={(e) => setTaskName(e.target.value)}
+                        id="name"
+                        required
+                      />
+                      <label htmlFor="name" className={styles.form__label}>
+                        Title
+                      </label>
+                    </div>
+                    <div className={styles.Inputs}>
+                      <input
+                        className={styles.form__field}
+                        type="date"
+                        value={taskDate}
+                        onChange={(e) => setTaskDate(e.target.value)}
+                        required
+                      />
+                    </div>
+                    <div className={styles.Inputs}>
+                      <input
+                        className={styles.form__field}
+                        type="time"
+                        value={taskTime}
+                        onChange={(e) => setTaskTime(e.target.value)}
+                      />
+                    </div>
+                    <div className={styles.Inputs}>
+                      <select
+                        className={styles.form__field}
+                        value={selectedCategory}
+                        onChange={(e) => setSelectedCategory(e.target.value)}
+                        required
+                      >
+                        <option value="">Select Category</option>
+                        {categories.map((category) => (
+                          <option key={category._id} value={category._id}>
+                            {category.name}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
                   </div>
-                  <div className={styles.Inputs}>
-                    <input
-                      className={styles.form__field}
-                      type="date"
-                      value={taskDate}
-                      onChange={(e) => setTaskDate(e.target.value)}
-                      required
-                    />
+                  <div className={styles.Addbtn}>
+                    <button className={styles.btn2} onClick={handleAddTask}>
+                      Add Task
+                    </button>
+                    <ToastContainer />
+                    <button className={styles.btn1} onClick={handleCloseModal}>
+                      Cancel
+                    </button>
                   </div>
-                  <div className={styles.Inputs}>
-                    <input
-                      className={styles.form__field}
-                      type="time"
-                      value={taskTime}
-                      onChange={(e) => setTaskTime(e.target.value)}
-                    />
-                  </div>
-                  <div className={styles.Inputs}>
-                    <select
-                      className={styles.form__field}
-                      value={selectedCategory}
-                      onChange={(e) => setSelectedCategory(e.target.value)}
-                      required
-                    >
-                      <option value="">Select Category</option>
-                      {categories.map((category) => (
-                        <option key={category._id} value={category._id}>
-                          {category.name}
-                        </option>
-                      ))}
-                    </select>
-                  </div>
-                </div>
-                <div className={styles.Addbtn}>
-                  <button className={styles.btn2} onClick={handleAddTask}>
-                    Add Task
-                  </button>
-                  <ToastContainer />
-                  <button className={styles.btn1} onClick={handleCloseModal}>
-                    Cancel
-                  </button>
-                </div>
-              </form>
-            </div>
-          )}
+                </form>
+              </div>
+            )}
           </div>
         </div>
       </div>

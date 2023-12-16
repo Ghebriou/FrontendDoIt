@@ -17,7 +17,7 @@ export default function Navaside2() {
   const [taskDate, setTaskDate] = useState("");
   const [taskTime, setTaskTime] = useState("");
   const [taskDescription, setTaskDescription] = useState("");
-  const [cookies, setCookies] = useCookies();
+  const [cookies] = useCookies();
   const [showModal, setShowModal] = useState(false);
   const totalTasks = tasks.length;
   const doneTasks = tasks.filter((task) => task.done).length;
@@ -101,13 +101,44 @@ export default function Navaside2() {
     }
   };
 
+  // get the user PDP
+  const [user, setUser] = useState(null); 
+
+  useEffect(() => {
+    const getUserData = async () => {
+      try {
+        const response = await axios.get("http://localhost:3000/getUser", {
+          headers: { token: cookies.token },
+        });
+        setUser(response.data.user);
+      } catch (error) {
+        console.error("Error fetching user data:", error);
+      }
+    };
+
+    getUserData();
+  }, [cookies.token]);
+
   return (
     <div className={styles.nav_side}>
       <div className={styles.navside}>
-        <div className={styles.user_picture}>
-          <img src={profile} alt="profile" />
+      {user ? (
+        <div className={styles.user_picture}> 
+            <img
+            src={`http://localhost:3000/uploads/profile_pictures/${user.profilePic}`}
+            alt="Profile"
+            style={{ width: "60px", height: "60px" ,borderRadius:"50%" }}
+             /> 
+        </div>
+         ):(
+          <div className={styles.user_picture}> 
+            <img
+            src={profile}
+            alt="Profile" 
+             /> 
         </div>
 
+         )}
         <div className={styles.calendar}>
           <Calendar width={240} height={350} />
         </div>
