@@ -24,7 +24,7 @@ export default function Navaside2() {
   const notDoneTasks = tasks.filter((task) => !task.done).length;
 
   const notify = () => {
-    toast.success("New task added!", {
+    toast.success("New Task added!", {
       position: "top-right",
       autoClose: 3000,
       hideProgressBar: false,
@@ -34,6 +34,7 @@ export default function Navaside2() {
       progress: undefined,
     });
   };
+
   const handleOpenModal = () => {
     setShowModal(true);
   };
@@ -71,7 +72,7 @@ export default function Navaside2() {
         headers: { token: cookies.token },
       });
       if (response.status === 200) {
-        notify();
+        notify(); // Trigger Toastify notification
       }
       // console.log(response.data);
 

@@ -96,8 +96,7 @@ export default function Mylist() {
       };
       const response = await axios.post("http://localhost:3000/tasks", task, {
         headers: { token: cookies.token },
-      });
-
+      }); 
       if (response.status === 200) {
         notify(); // Trigger Toastify notification
       }
@@ -109,7 +108,7 @@ export default function Mylist() {
       setTaskTime("");
       setSelectedCategory("");
       setTaskDone(false);
-      handleCloseModal();
+      handleCloseModal();  
     } catch (error) {
       console.error(error);
     }
@@ -461,7 +460,7 @@ export default function Mylist() {
                     <button className={styles.btn2} onClick={handleAddTask}>
                       Add Task
                     </button>
-                    <ToastContainer />
+
                     <button className={styles.btn1} onClick={handleCloseModal}>
                       Cancel
                     </button>
@@ -469,8 +468,9 @@ export default function Mylist() {
                 </form>
               </div>
             )}
-          </div>
-        </div>
+            <ToastContainer />
+          </div> 
+        </div> 
       </div>
     </div>
   );
