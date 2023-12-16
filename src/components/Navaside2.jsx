@@ -215,7 +215,7 @@ export default function Navaside2() {
                   <button className={styles.btn2} onClick={handleAddTask}>
                     Add Task
                   </button>
-                  <ToastContainer />
+                  
                   <button className={styles.btn1} onClick={handleCloseModal}>
                     Cancel
                   </button>
@@ -223,6 +223,7 @@ export default function Navaside2() {
               </form>
             </div>
           )}
+          <ToastContainer />
         </div>
       </div>
     </div>

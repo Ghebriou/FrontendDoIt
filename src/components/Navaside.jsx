@@ -13,6 +13,8 @@ import logout from "../assets/logout.svg";
 import category from "../assets/addlist.svg";
 import salat from "../assets/salat.svg";
 import deleteCateg from "../assets/delete.svg";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Navaside = () => {
   const [categories, setCategories] = useState([]);
@@ -22,7 +24,7 @@ const Navaside = () => {
   const navigate = useNavigate();
 
   const notify = () => {
-    toast.success("New task added!", {
+    toast.success("New Category added!", {
       position: "top-right",
       autoClose: 3000,
       hideProgressBar: false,
@@ -42,7 +44,10 @@ const Navaside = () => {
         },
         { headers: { token: cookies.token } }
       );
-
+      if (response.status === 200) {
+        notify();
+      }
+      
       setCategoryName("");
       console.log(response.data);
     } catch (error) {
@@ -121,6 +126,7 @@ const Navaside = () => {
                         onKeyDown={handleKeyDown}
                       />{" "}
                     </form>
+                  <ToastContainer />
                   </div>
 
                   {categories.map((category) => (
